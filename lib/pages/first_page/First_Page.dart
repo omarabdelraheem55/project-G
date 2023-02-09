@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:graduation_project/Signup/sign_up.dart';
 import 'package:graduation_project/new_color/New_Color.dart';
-import 'package:graduation_project/pages/login/LoginScreen.dart';
+import 'package:graduation_project/pages/LogIn/login.dart';
+import 'package:graduation_project/pages/SignupPage/SignUp.dart';
 class FirstPage extends StatefulWidget {
   const FirstPage({Key? key}) : super(key: key);
 
@@ -53,7 +53,7 @@ class _FirstPageState extends State<FirstPage> {
                 SizedBox(height: height*0.08,),
                 GestureDetector(
                   onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Login()));
                   },
                   child: Container(
                     width: width*0.73,

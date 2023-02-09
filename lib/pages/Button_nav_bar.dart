@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:graduation_project/Home_page.dart';
+import 'package:graduation_project/pages/Home_page.dart';
+import 'package:graduation_project/new_color/New_Color.dart';
 class BottomNavigation extends StatefulWidget {
   const BottomNavigation({Key? key}) : super(key: key);
 
@@ -9,7 +10,7 @@ class BottomNavigation extends StatefulWidget {
 }
 
 class _BottomNavigationState extends State<BottomNavigation> {
-  int currentIndex=2;
+  int currentIndex=0;
   final screens= [
    HomePage(),
    HomePage(),
@@ -24,19 +25,20 @@ class _BottomNavigationState extends State<BottomNavigation> {
           index: currentIndex,
           children:screens,
         ),
-        bottomNavigationBar: BottomNavigationBar(
+        bottomNavigationBar:
+        BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
-          selectedItemColor: Colors.black,
-          unselectedItemColor: Colors.black45,
+          selectedItemColor:NewColor.mint,
+          unselectedItemColor: Colors.grey,
           showUnselectedLabels: false,
           currentIndex: currentIndex,
           onTap: (index)=>setState(()=> currentIndex=index),
           items: [
-            BottomNavigationBarItem(icon: Image.asset("assets/icons/Icon.png"),label: "Home"),
-            BottomNavigationBarItem(icon: Image.asset("assets/icons/heart.png"),label: "Notification" ),
-            BottomNavigationBarItem(icon: Image.asset("assets/icons/Suitcase.png",),label: "Location" ),
-            BottomNavigationBarItem(icon: Image.asset("assets/icons/Calendar.png"),label: "Calendar" ),
-            BottomNavigationBarItem(icon: Image.asset("assets/icons/avatar.png"),label: "Profile" ),
+            BottomNavigationBarItem(icon: Icon(Icons.home),label: "Home"),
+            BottomNavigationBarItem(icon: Icon(Icons.favorite_border),label: "Notification" ),
+            BottomNavigationBarItem(icon: Icon(Icons.home),label: "Location" ),
+            BottomNavigationBarItem(icon: Icon(Icons.home),label: "Calendar" ),
+            BottomNavigationBarItem(icon: Icon(Icons.home),label: "Profile" ),
           ],),
       );
   }

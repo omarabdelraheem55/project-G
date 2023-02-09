@@ -15,14 +15,14 @@ class SplashScreen extends StatelessWidget {
         height: height,
         width: width,
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.bottomCenter,
-              end: Alignment.topCenter,
-              colors: [
-                NewColor.mint,
-                Colors.cyanAccent,
-                Colors.white
-              ]),
+          color: NewColor.mint          // gradient: LinearGradient(
+          //     begin: Alignment.bottomCenter,
+          //     end: Alignment.topCenter,
+          //     colors: [
+          //       NewColor.mint,
+          //       Colors.cyanAccent,
+          //       Colors.white
+          //     ]),
         ),
         child: Column(
           children: [

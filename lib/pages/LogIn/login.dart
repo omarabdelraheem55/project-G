@@ -1,13 +1,15 @@
 
 import 'package:flutter/material.dart';
 import 'package:graduation_project/new_color/New_Color.dart';
-class SignUp extends StatefulWidget {
+
+import '../SignupPage/SignUp.dart';
+class Login extends StatefulWidget {
 
   @override
-  State<SignUp> createState() => __SignUpState();
+  State<Login> createState() => __LoginState();
 }
 
-class __SignUpState extends State<SignUp> {
+class __LoginState extends State<Login> {
   var emailcontroler = TextEditingController();
 
   var passcontroler = TextEditingController();
@@ -19,16 +21,18 @@ class __SignUpState extends State<SignUp> {
   var formkey=GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: NewColor.mint,
         leading: IconButton(icon:Icon(Icons.arrow_back_ios_rounded),
           color: Colors.black
-          , onPressed: () {  },),
-        title: Text("              SignUp",
+          , onPressed: () { Navigator.pop(context); },),
+        title: Text("            تسجيل دخول",
           style: TextStyle(
             color: Colors.black,
-            fontSize: MediaQuery.of(context).size.width*0.06,
+            fontSize: width*0.06,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -40,49 +44,17 @@ class __SignUpState extends State<SignUp> {
           child: Column(
             children: [
               SizedBox(
-                height: MediaQuery.of(context).size.height*0.09,
+                height:height*0.07,
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextFormField(
-
-                  controller:namecontroler ,
-                  keyboardType:TextInputType.name ,
-                  onFieldSubmitted: (value){
-                    print(value);
-                  },
-                  onChanged: (value){
-                    print(value);
-                  },
-                  validator: (value)
-                  {
-                    if(value!.isEmpty)
-                    {
-                      return 'name not must be embty';
-                    }
-                    return null;
-                  },
-                  decoration: InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: NewColor.mint),borderRadius:BorderRadius.circular(25.0),
-                    ),
-                    labelText: "Enter your name",
-                    border: OutlineInputBorder(borderRadius:BorderRadius.circular(25.0),
-                      borderSide: BorderSide(),
-                    ),
-                    prefixIcon: Icon(
-                        Icons.account_circle_rounded,color: NewColor.mint,
-                    ),
-                  ),
-                ),
-
-              ),
+              // البريد
+              Image.asset("lib/assets/images/logo/new logo.png",width: width*0.25,),
               SizedBox(
-                height:  MediaQuery.of(context).size.height*0.02,
+                height:height*0.02,
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.fromLTRB(25, 0, 25, 12),
                 child: TextFormField(
+
                   controller:emailcontroler ,
                   keyboardType:TextInputType.emailAddress ,
                   onFieldSubmitted: (value){
@@ -95,26 +67,28 @@ class __SignUpState extends State<SignUp> {
                   {
                     if(value!.isEmpty)
                     {
-                      return 'email not must be embty';
+                      return 'يرجي ادخال البريد الالكتروني الخاص بك';
                     }
                     return null;
                   },
                   decoration: InputDecoration(
-                    focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: NewColor.mint),borderRadius: BorderRadius.circular(25)),
-                      labelText: "Enter your email",
-                      border: OutlineInputBorder(borderRadius:BorderRadius.circular(25.0),
-                        borderSide: BorderSide(),),
-                      prefixIcon: Icon(
-                          Icons.email,color: NewColor.mint
-                      )
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: NewColor.mint),borderRadius:BorderRadius.circular(25.0),
+                    ),
+                    labelText: "البريد الالكتروني",
+                    border: OutlineInputBorder(borderRadius:BorderRadius.circular(25.0),
+                      borderSide: BorderSide(),
+                    ),
+                    prefixIcon: Icon(
+                      Icons.email,color: NewColor.mint,
+                    ),
                   ),
                 ),
+
               ),
-              SizedBox(
-                height:  MediaQuery.of(context).size.height*0.02,
-              ),
+              //كلمه المرور
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding:  EdgeInsets.fromLTRB(25, 0, 25, 12),
                 child: TextFormField(
                   controller: passcontroler,
                   keyboardType:TextInputType.visiblePassword,
@@ -127,19 +101,19 @@ class __SignUpState extends State<SignUp> {
                   },
                   validator: (value)
                   {
-                    if(value!.isEmpty)
+                    if(value!.length<8)
                     {
-                      return 'password not must be empty';
+                      return ' يرجي ادخال كلمه المرور لا تقل عن 8 حقول';
                     }
                     return null;
                   },
                   decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: NewColor.mint),borderRadius: BorderRadius.circular(25)),
-                    labelText: "Enter your password",
+                    labelText: "كلمه المرور",
                     border: OutlineInputBorder(borderRadius:BorderRadius.circular(25.0),
                       borderSide: BorderSide(),),
                     prefixIcon: Icon(
-                        Icons.lock,color: NewColor.mint,
+                      Icons.lock,color: NewColor.mint,
                     ),
 
                     suffixIcon: IconButton(
@@ -151,9 +125,9 @@ class __SignUpState extends State<SignUp> {
                         });
                       },
                       icon: ispassword ? Icon(
-                          Icons.visibility,color: NewColor.mint,
+                        Icons.visibility,color: NewColor.mint,
                       ):Icon(
-                          Icons.visibility_off,color: NewColor.mint,
+                        Icons.visibility_off,color: NewColor.mint,
                       ) ,
                     ),
                   ),
@@ -175,28 +149,22 @@ class __SignUpState extends State<SignUp> {
                 ),
                 title: RichText(
                   textAlign: TextAlign.start,
-                  text: TextSpan(text: "I agree to the medidoc ",
+                  text: TextSpan(text: "اوافق علي شروط الخدمه  ",
                       style: TextStyle(
                           fontSize:MediaQuery.of(context).size.width*0.04 ,
                           color: Colors.black
                       ),
                       children: [
-                        TextSpan(text: "Terms of Service ",
+                        TextSpan(text: "و ",
                             style: TextStyle(
                                 fontSize:MediaQuery.of(context).size.width*0.04 ,
                                 color: Color(0xff2d9b95)
                             )
                         ),
-                        TextSpan(text: "and ",
+                        TextSpan(text: "سياسه الخصوصيه ",
                             style: TextStyle(
                                 fontSize:MediaQuery.of(context).size.width*0.04 ,
                                 color: Colors.black
-                            )
-                        ),
-                        TextSpan(text: "Privacy Policy",
-                            style: TextStyle(
-                                fontSize:MediaQuery.of(context).size.width*0.04 ,
-                                color: Color(0xff2d9b95)
                             )
                         ),
                       ]
@@ -221,7 +189,7 @@ class __SignUpState extends State<SignUp> {
 
                     // Navigator.push(context, MaterialPageRoute(builder:(context)=> MessengerScreen()));
                   }:null,
-                    child: Text("SignUp",
+                    child: Text("تسجيل دخول",
 
                       style: TextStyle(
                         color: Colors.white ,
@@ -232,14 +200,16 @@ class __SignUpState extends State<SignUp> {
                 ),
               ),
               SizedBox(
-                height:  MediaQuery.of(context).size.height*0.01,
+                height:height*0.01,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Don\'t have an accont ?",
+                  Text("لا تمتلك حساب ؟ ",
                     style: TextStyle(
-                      fontSize: MediaQuery.of(context).size.width*0.03,
+                      fontSize:width*0.035
+                      ,
+                      fontWeight: FontWeight.bold
                     ),
                   ),
                   Container(
@@ -249,12 +219,16 @@ class __SignUpState extends State<SignUp> {
                     child: TextButton(onPressed: (){
                     },
                         child:
-                        Text("SignUp",
-                          style: TextStyle(
-                            color: Color(0xff2d9b95),
-                            fontSize: MediaQuery.of(context).size.width*0.03,
-                          ),
-                        )),
+                       TextButton(onPressed: (){
+                         Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUp()));
+                       },child:  Text("تسجيل",
+                         style: TextStyle(
+                             color: Color(0xff2d9b95),
+                             fontSize:width*0.035,
+                             fontWeight: FontWeight.bold
+                         ),
+                       ),)
+                    ),
                   )
                 ],
               ),

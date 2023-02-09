@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/new_color/New_Color.dart';
-
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -15,7 +14,8 @@ class _HomePageState extends State<HomePage> {
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: Color(0xffF4F8FB),
-      body: SingleChildScrollView(
+      body:
+      SingleChildScrollView(
         child: SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
@@ -71,7 +71,7 @@ class _HomePageState extends State<HomePage> {
                                     /* Clear the search field */
                                   },
                                 ),
-                                hintText: 'Search...',
+                                hintText: 'بحث...',
                                 border: InputBorder.none),
                           ),
                         ),
@@ -84,7 +84,7 @@ class _HomePageState extends State<HomePage> {
                   child: Row(
                     children: [
                       Text(
-                        "popular doctor",
+                        "قائمه الاطباء",
                         style: TextStyle(
                             color: NewColor.mint,
                             fontWeight: FontWeight.bold,
@@ -111,25 +111,27 @@ class _HomePageState extends State<HomePage> {
                             child:  Column(
                               children: [
                                 SizedBox(height: height*0.01,),
-                                Container(
-                                  width: width*0.5,
-                                  height: height*0.1,
-                                  decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      border: Border.all(color: Colors.grey),
-                                      borderRadius: BorderRadius.circular(20)
+                                Expanded(
+                                  child: Container(
+                                    width: width*0.5,
+                                    height: height*0.1,
+                                    decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        border: Border.all(color: Colors.grey),
+                                        borderRadius: BorderRadius.circular(20)
+                                    ),
                                   ),
                                 ),
                                 Row(
                                   children: [
                                     SizedBox(width: width*0.08,),
-                                    Text("Dentistis",style: TextStyle(color: Colors.grey),),
+                                    Text("أطباء الأسنان",style: TextStyle(color: Colors.grey),),
                                   ],
                                 ),
                                 Row(
                                   children: [
                                     SizedBox(width: width*0.06,),
-                                    Text("DR:Omar Saleh",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18),),
+                                    Text("د:عمر صالح",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18),),
                                     SizedBox(width: width*0.09,),
                                     Icon(Icons.star,color: Colors.yellow,),
                                     Text("4.5",style: TextStyle(fontSize: 18),)
@@ -156,25 +158,27 @@ class _HomePageState extends State<HomePage> {
                             child:  Column(
                               children: [
                                 SizedBox(height: height*0.01,),
-                                Container(
-                                  width: width*0.5,
-                                  height: height*0.1,
-                                  decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      border: Border.all(color: Colors.grey),
-                                      borderRadius: BorderRadius.circular(20)
+                                Expanded(
+                                  child: Container(
+                                    width: width*0.5,
+                                    height: height*0.1,
+                                    decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        border: Border.all(color: Colors.grey),
+                                        borderRadius: BorderRadius.circular(20)
+                                    ),
                                   ),
                                 ),
                                 Row(
                                   children: [
                                     SizedBox(width: width*0.08,),
-                                    Text("Dentistis",style: TextStyle(color: Colors.grey),),
+                                    Text("أطباء الأسنان",style: TextStyle(color: Colors.grey),),
                                   ],
                                 ),
                                 Row(
                                   children: [
                                     SizedBox(width: width*0.06,),
-                                    Text("DR:Omar Saleh",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18),),
+                                    Text("د:عمر صالح",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18),),
                                     SizedBox(width: width*0.09,),
                                     Icon(Icons.star,color: Colors.yellow,),
                                     Text("4.5",style: TextStyle(fontSize: 18),)
@@ -201,25 +205,27 @@ class _HomePageState extends State<HomePage> {
                             child:  Column(
                               children: [
                                 SizedBox(height: height*0.01,),
-                                Container(
-                                  width: width*0.5,
-                                  height: height*0.1,
-                                  decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      border: Border.all(color: Colors.grey),
-                                      borderRadius: BorderRadius.circular(20)
+                                Expanded(
+                                  child: Container(
+                                    width: width*0.5,
+                                    height: height*0.1,
+                                    decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        border: Border.all(color: Colors.grey),
+                                        borderRadius: BorderRadius.circular(20)
+                                    ),
                                   ),
                                 ),
                                 Row(
                                   children: [
                                     SizedBox(width: width*0.08,),
-                                    Text("Dentistis",style: TextStyle(color: Colors.grey),),
+                                    Text("أطباء الأسنان",style: TextStyle(color: Colors.grey),),
                                   ],
                                 ),
                                 Row(
                                   children: [
                                     SizedBox(width: width*0.06,),
-                                    Text("DR:Omar Saleh",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18),),
+                                    Text("د:عمر صالح",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18),),
                                     SizedBox(width: width*0.09,),
                                     Icon(Icons.star,color: Colors.yellow,),
                                     Text("4.5",style: TextStyle(fontSize: 18),)
@@ -246,25 +252,27 @@ class _HomePageState extends State<HomePage> {
                             child:  Column(
                               children: [
                                 SizedBox(height: height*0.01,),
-                                Container(
-                                  width: width*0.5,
-                                  height: height*0.1,
-                                  decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      border: Border.all(color: Colors.grey),
-                                      borderRadius: BorderRadius.circular(20)
+                                Expanded(
+                                  child: Container(
+                                    width: width*0.5,
+                                    height: height*0.1,
+                                    decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        border: Border.all(color: Colors.grey),
+                                        borderRadius: BorderRadius.circular(20)
+                                    ),
                                   ),
                                 ),
                                 Row(
                                   children: [
                                     SizedBox(width: width*0.08,),
-                                    Text("Dentistis",style: TextStyle(color: Colors.grey),),
+                                    Text("أطباء الأسنان",style: TextStyle(color: Colors.grey),),
                                   ],
                                 ),
                                 Row(
                                   children: [
                                     SizedBox(width: width*0.06,),
-                                    Text("DR:Omar Saleh",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18),),
+                                    Text("د:عمر صالح",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18),),
                                     SizedBox(width: width*0.09,),
                                     Icon(Icons.star,color: Colors.yellow,),
                                     Text("4.5",style: TextStyle(fontSize: 18),)
