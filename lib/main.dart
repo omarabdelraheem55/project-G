@@ -1,8 +1,6 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:graduation_project/Select_Form/Select_form.dart';
-
+import 'package:graduation_project/Who%20are%20we/Screens/screens.dart';
 import 'new_color/New_Color.dart';
 
 void main() {
@@ -16,16 +14,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      localizationsDelegates: [
-        GlobalCupertinoLocalizations.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-      ],
-      supportedLocales: [
-        Locale("ar")
-      ],
+      debugShowCheckedModeBanner: false,
+      // localizationsDelegates: [
+      //   GlobalCupertinoLocalizations.delegate,
+      //   GlobalMaterialLocalizations.delegate,
+      //   GlobalWidgetsLocalizations.delegate,
+      // ],
+      // supportedLocales: [
+      //   Locale("ar")
+      // ],
       title: 'Flutter Demo',
       theme: ThemeData(
+        primarySwatch: Colors.teal
         // This is the theme of your application.
         //
         // Try running your application with "flutter run". You'll see the
@@ -38,30 +38,40 @@ class MyApp extends StatelessWidget {
       ),
       home:
       AnimatedSplashScreen(
+        backgroundColor: NewColor.mint,
         splashIconSize: double.infinity,
         splashTransition: SplashTransition.fadeTransition,
-        duration: 4000,
+        duration:3000,
         splash:
         Container(
           width: double.infinity,
           height: double.infinity,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.bottomCenter,
-                end: Alignment.topCenter,
-                colors: [
-             NewColor.mint,
-              Colors.cyanAccent
-            ]),
-          ),
+          color: NewColor.mint,
           child:
           Column(
             children: [
-              SizedBox(height: 300),
-            Image.asset("lib/assets/images/logo/new logo.png",width: 200,height: 200,)
+              SizedBox(height: 200,),
+              Image.asset("lib/assets/images/logo/new logo.png",width:200,),
+              RichText(
+                textScaleFactor: 1.5,
+                textAlign: TextAlign.start,
+                text: TextSpan(
+                    text: "C",
+                    style: TextStyle(
+                        color: Colors.black, fontWeight: FontWeight.bold),
+                    children: [
+                      TextSpan(text: "a", style: TextStyle(color:Colors.white)),
+                      TextSpan(
+                          text: "re__رعــــ",
+                          style: TextStyle(color: Colors.black)),
+                      TextSpan(text: "ا", style: TextStyle(color:Colors.white)),
+                      TextSpan(
+                          text: "يــة", style: TextStyle(color: Colors.black)),
+                    ]),
+              ),
             ],
           ),
         ),
-        nextScreen: SelectForm(),),);
+        nextScreen: Screens(),),);
   }
 }

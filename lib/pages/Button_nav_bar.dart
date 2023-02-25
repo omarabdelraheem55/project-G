@@ -14,7 +14,8 @@ class _BottomNavigationState extends State<BottomNavigation> {
   final screens= [
    HomePage(),
    HomePage(),
-   HomePage(),
+   // HomePage(),
+   // HomePage(),
    HomePage(),
   ];
   @override
@@ -32,13 +33,14 @@ class _BottomNavigationState extends State<BottomNavigation> {
           unselectedItemColor: Colors.grey,
           showUnselectedLabels: false,
           currentIndex: currentIndex,
+          showSelectedLabels: false,
           onTap: (index)=>setState(()=> currentIndex=index),
           items: [
             BottomNavigationBarItem(icon: Icon(Icons.home),label: "Home"),
-            BottomNavigationBarItem(icon: Icon(Icons.favorite_border),label: "Notification" ),
-            BottomNavigationBarItem(icon: Icon(Icons.home),label: "Location" ),
-            BottomNavigationBarItem(icon: Icon(Icons.home),label: "Calendar" ),
-            BottomNavigationBarItem(icon: Icon(Icons.home),label: "Profile" ),
+            BottomNavigationBarItem(icon: Icon(Icons.favorite),label: "Notification" ),
+            // BottomNavigationBarItem(icon: CircleAvatar(backgroundImage:AssetImage("lib/assets/images/img_7.png"),),label: "Location" ),
+            // BottomNavigationBarItem(icon: Icon(Icons.chat),label: "Calendar" ),
+            BottomNavigationBarItem(icon: Icon(Icons.person),label: "Profile" ),
           ],),
       );
   }

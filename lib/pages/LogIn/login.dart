@@ -1,8 +1,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:graduation_project/new_color/New_Color.dart';
+import 'package:graduation_project/pages/Button_nav_bar.dart';
+import 'package:graduation_project/pages/Home_page.dart';
 
-import '../SignupPage/SignUp.dart';
+import '../../Componant/componant.dart';
+import '../All_Doctors/SignUp.dart';
 class Login extends StatefulWidget {
 
   @override
@@ -24,121 +27,88 @@ class __LoginState extends State<Login> {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: NewColor.mint,
-        leading: IconButton(icon:Icon(Icons.arrow_back_ios_rounded),
-          color: Colors.black
-          , onPressed: () { Navigator.pop(context); },),
-        title: Text("            تسجيل دخول",
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: width*0.06,
-            fontWeight: FontWeight.bold,
+      appBar:AppBar(
+        elevation: 20,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(35),
           ),
         ),
-        elevation: 0,
+        automaticallyImplyLeading: false,
+        title:
+        Center(
+          child: Text("Login" ,
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: width * 0.058,
+                color: Colors.white),),
+        ),
+        backgroundColor: NewColor.mint,
       ),
       body:SingleChildScrollView(
         child: Form(
           key:formkey ,
           child: Column(
             children: [
-              SizedBox(
-                height:height*0.07,
-              ),
+              SizedBox(height: 50,),
               // البريد
               Image.asset("lib/assets/images/logo/new logo.png",width: width*0.25,),
               SizedBox(
                 height:height*0.02,
               ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(25, 0, 25, 12),
-                child: TextFormField(
+            Textfield1(emailcontroler, TextInputType.emailAddress, Icon(Icons.email,color: NewColor.mint), "Enter your email", "please enter your email"),
+      //كلمه المرور
+      Padding(
+        padding:  EdgeInsets.fromLTRB(25, 0, 25, 12),
+        child: TextFormField(
+          controller: passcontroler,
+          keyboardType:TextInputType.visiblePassword,
+          obscureText: ispassword,
+          onFieldSubmitted: (value){
+            print(value);
+          },
+          onChanged: (value){
+            print(value);
+          },
+          validator: (value)
+          {
+            if(value!.length<8)
+            {
+              return 'Please enter the password in at least 8 fields';
+            }
+            return null;
+          },
+          decoration: InputDecoration(
+            focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: NewColor.mint),borderRadius: BorderRadius.circular(25)),
+            labelText: "Enter your password",
+            border: OutlineInputBorder(borderRadius:BorderRadius.circular(25.0),
+              borderSide: BorderSide(),),
+            prefixIcon: Icon(
+              Icons.lock,color: NewColor.mint,
+            ),
+            suffixIcon: IconButton(
+              onPressed: ()
+              {
 
-                  controller:emailcontroler ,
-                  keyboardType:TextInputType.emailAddress ,
-                  onFieldSubmitted: (value){
-                    print(value);
-                  },
-                  onChanged: (value){
-                    print(value);
-                  },
-                  validator: (value)
-                  {
-                    if(value!.isEmpty)
-                    {
-                      return 'يرجي ادخال البريد الالكتروني الخاص بك';
-                    }
-                    return null;
-                  },
-                  decoration: InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: NewColor.mint),borderRadius:BorderRadius.circular(25.0),
-                    ),
-                    labelText: "البريد الالكتروني",
-                    border: OutlineInputBorder(borderRadius:BorderRadius.circular(25.0),
-                      borderSide: BorderSide(),
-                    ),
-                    prefixIcon: Icon(
-                      Icons.email,color: NewColor.mint,
-                    ),
-                  ),
-                ),
-
-              ),
-              //كلمه المرور
-              Padding(
-                padding:  EdgeInsets.fromLTRB(25, 0, 25, 12),
-                child: TextFormField(
-                  controller: passcontroler,
-                  keyboardType:TextInputType.visiblePassword,
-                  obscureText: ispassword,
-                  onFieldSubmitted: (value){
-                    print(value);
-                  },
-                  onChanged: (value){
-                    print(value);
-                  },
-                  validator: (value)
-                  {
-                    if(value!.length<8)
-                    {
-                      return ' يرجي ادخال كلمه المرور لا تقل عن 8 حقول';
-                    }
-                    return null;
-                  },
-                  decoration: InputDecoration(
-                    focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: NewColor.mint),borderRadius: BorderRadius.circular(25)),
-                    labelText: "كلمه المرور",
-                    border: OutlineInputBorder(borderRadius:BorderRadius.circular(25.0),
-                      borderSide: BorderSide(),),
-                    prefixIcon: Icon(
-                      Icons.lock,color: NewColor.mint,
-                    ),
-
-                    suffixIcon: IconButton(
-                      onPressed: ()
-                      {
-
-                        setState(() {
-                          ispassword = !ispassword;
-                        });
-                      },
-                      icon: ispassword ? Icon(
-                        Icons.visibility,color: NewColor.mint,
-                      ):Icon(
-                        Icons.visibility_off,color: NewColor.mint,
-                      ) ,
-                    ),
-                  ),
-                ),
-              ),
+                setState(() {
+                  ispassword = !ispassword;
+                });
+              },
+              icon: ispassword ? Icon(
+                Icons.visibility,color: NewColor.mint,
+              ):Icon(
+                Icons.visibility_off,color: NewColor.mint,
+              ) ,
+            ),
+          ),
+        ),
+      ),
               SizedBox(
                 height:  MediaQuery.of(context).size.height*0.02,
               ),
               ListTile(
                 leading: Checkbox(value:agreement ,
-                  activeColor: Color(0xff2d9b95),
+                  activeColor:NewColor.mint,
                   onChanged: (value)
                   {
                     setState(() {
@@ -149,24 +119,31 @@ class __LoginState extends State<Login> {
                 ),
                 title: RichText(
                   textAlign: TextAlign.start,
-                  text: TextSpan(text: "اوافق علي شروط الخدمه  ",
+                  text: TextSpan(text: "I agree to the medidoc",
                       style: TextStyle(
                           fontSize:MediaQuery.of(context).size.width*0.04 ,
                           color: Colors.black
                       ),
                       children: [
-                        TextSpan(text: "و ",
+                        TextSpan(text: " Terms of Service ",
                             style: TextStyle(
                                 fontSize:MediaQuery.of(context).size.width*0.04 ,
-                                color: Color(0xff2d9b95)
+                                color: NewColor.mint
                             )
                         ),
-                        TextSpan(text: "سياسه الخصوصيه ",
+                        TextSpan(text: " and ",
                             style: TextStyle(
                                 fontSize:MediaQuery.of(context).size.width*0.04 ,
                                 color: Colors.black
                             )
                         ),
+                        TextSpan(text: "Privacy Policy  ",
+                            style: TextStyle(
+                                fontSize:MediaQuery.of(context).size.width*0.04 ,
+                                color:NewColor.mint
+                            )
+                        ),
+
                       ]
 
                   ),
@@ -178,21 +155,23 @@ class __LoginState extends State<Login> {
               Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Container(
-                  width: MediaQuery.of(context).size.width,
-                  color: agreement? Color(0xff2d9b95):Colors.grey[500],
+                  decoration: BoxDecoration(  color: agreement? NewColor.mint:Colors.grey[500],borderRadius: BorderRadius.circular(32)),
+                  width: width * 0.9,
+                  height: height * 0.073,
                   child: MaterialButton( onPressed: agreement ?(
                       ){
                     if(formkey.currentState!.validate()) {
-                      print(emailcontroler.text);
-                      print(passcontroler.text);
+                      Route route =MaterialPageRoute(builder: (context)=>BottomNavigation());
+                      Navigator.pushReplacement(context,route);
                     }
 
                     // Navigator.push(context, MaterialPageRoute(builder:(context)=> MessengerScreen()));
                   }:null,
-                    child: Text("تسجيل دخول",
-
+                    child: Text("Login",
                       style: TextStyle(
                         color: Colors.white ,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold
                       ),
                     ),
 
@@ -205,7 +184,7 @@ class __LoginState extends State<Login> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("لا تمتلك حساب ؟ ",
+                  Text("Don't have an account?",
                     style: TextStyle(
                       fontSize:width*0.035
                       ,
@@ -220,10 +199,11 @@ class __LoginState extends State<Login> {
                     },
                         child:
                        TextButton(onPressed: (){
-                         Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUp()));
-                       },child:  Text("تسجيل",
+                         Route route =MaterialPageRoute(builder: (context)=>SignUp());
+                         Navigator.pushReplacement(context,route);
+                       },child:  Text("Sign Up",
                          style: TextStyle(
-                             color: Color(0xff2d9b95),
+                             color:NewColor.mint,
                              fontSize:width*0.035,
                              fontWeight: FontWeight.bold
                          ),

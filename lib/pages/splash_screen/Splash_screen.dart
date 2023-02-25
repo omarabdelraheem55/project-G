@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:graduation_project/new_color/New_Color.dart';
-
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
@@ -8,21 +6,13 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
-    final data = MediaQuery.of(context);
     return Scaffold(
       body:
       Container(
         height: height,
         width: width,
         decoration: BoxDecoration(
-          color: NewColor.mint          // gradient: LinearGradient(
-          //     begin: Alignment.bottomCenter,
-          //     end: Alignment.topCenter,
-          //     colors: [
-          //       NewColor.mint,
-          //       Colors.cyanAccent,
-          //       Colors.white
-          //     ]),
+          color:Color(0xFF199A8E)          // gradient: LinearGradient(
         ),
         child: Column(
           children: [

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:graduation_project/Componant/componant.dart';
 import 'package:graduation_project/pages/Button_nav_bar.dart';
 import 'package:graduation_project/pages/LogIn/login.dart';
 import '../../new_color/New_Color.dart';
@@ -28,20 +29,26 @@ class _SignUpState extends State<SignUp> {
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    final data = MediaQuery.of(context);
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
+        appBar:
+        AppBar(
+          elevation: 20,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(
+              bottom: Radius.circular(35),
+            ),
+          ),
+          automaticallyImplyLeading: false,
           title:
-        Padding(
-          padding: const EdgeInsets.only(right: 80),
-          child: Text("حساب جديد" ,
+        Center(
+          child: Text("Sign Up" ,
             style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: width * 0.058,
-                color: Colors.black),),
+                color: Colors.white),),
         ),
           backgroundColor: NewColor.mint,
         ),
@@ -80,79 +87,9 @@ class _SignUpState extends State<SignUp> {
                   height: width * 0.1,
                 ),
                 //الاسم
-                Padding(
-                  padding: EdgeInsets.fromLTRB(25, 0, 25, 12),
-                  child: TextFormField(
-
-                    controller:name ,
-                    keyboardType:TextInputType.name ,
-                    onFieldSubmitted: (value){
-                      print(value);
-                    },
-                    onChanged: (value){
-                      print(value);
-                    },
-                    validator: (value)
-                    {
-                      if(value!.isEmpty)
-                      {
-                        return 'يرجي ادخال الاسم';
-                      }
-                      return null;
-                    },
-                    decoration:
-                    InputDecoration(
-                      focusColor: Colors.black12,
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: NewColor.mint),borderRadius:BorderRadius.circular(25.0),
-                      ),
-                      labelText: "الاسم بالكامل",
-                      border: OutlineInputBorder(borderRadius:BorderRadius.circular(25.0),
-                        borderSide: BorderSide(),
-                      ),
-                      prefixIcon: Icon(
-                        Icons.account_circle_rounded,color: NewColor.mint,
-                      ),
-                    ),
-                  ),
-
-                ),
+                Textfield1(name, TextInputType.name, Icon(Icons.account_circle_outlined,color: NewColor.mint,), "Enter your name", "*please enter your name")
                 // البريد
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(25, 0, 25, 12),
-                  child: TextFormField(
-
-                    controller:email ,
-                    keyboardType:TextInputType.emailAddress ,
-                    onFieldSubmitted: (value){
-                      print(value);
-                    },
-                    onChanged: (value){
-                      print(value);
-                    },
-                    validator: (value)
-                    {
-                      if(value!.isEmpty)
-                      {
-                        return 'يرجي ادخال البريد الالكتروني الخاص بك';
-                      }
-                      return null;
-                    },
-                    decoration: InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: NewColor.mint),borderRadius:BorderRadius.circular(25.0),
-                      ),
-                      labelText: "البريد الالكتروني",
-                      border: OutlineInputBorder(borderRadius:BorderRadius.circular(25.0),
-                        borderSide: BorderSide(),
-                      ),
-                      prefixIcon: Icon(
-                        Icons.email,color: NewColor.mint,
-                      ),
-                    ),
-                  ),
-
-                ),
+                ,Textfield1(email, TextInputType.emailAddress, Icon(Icons.email,color: NewColor.mint), "Enter your email", "please enter your email"),
                 //كلمه المرور
                 Padding(
                   padding:  EdgeInsets.fromLTRB(25, 0, 25, 12),
@@ -170,19 +107,18 @@ class _SignUpState extends State<SignUp> {
                     {
                       if(value!.length<8)
                       {
-                        return ' يرجي ادخال كلمه المرور لا تقل عن 8 حقول';
+                        return 'Please enter the password in at least 8 fields';
                       }
                       return null;
                     },
                     decoration: InputDecoration(
                       focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: NewColor.mint),borderRadius: BorderRadius.circular(25)),
-                      labelText: "كلمه المرور",
+                      labelText: "Enter your password",
                       border: OutlineInputBorder(borderRadius:BorderRadius.circular(25.0),
                         borderSide: BorderSide(),),
                       prefixIcon: Icon(
                         Icons.lock,color: NewColor.mint,
                       ),
-
                       suffixIcon: IconButton(
                         onPressed: ()
                         {
@@ -201,250 +137,19 @@ class _SignUpState extends State<SignUp> {
                   ),
                 ),
                 //رقم الهاتف
-                Padding(
-                  padding: EdgeInsets.fromLTRB(25, 0, 25, 12),
-                  child: TextFormField(
-                    controller:phone ,
-                    keyboardType:TextInputType.phone ,
-                    onFieldSubmitted: (value){
-                      print(value);
-                    },
-                    onChanged: (value){
-                      print(value);
-                    },
-                    validator: (value)
-                    {
-                      if(value!.isEmpty)
-                      {
-                        return 'يرجي ادخال رقم هاتف';
-                      }
-                      return null;
-                    },
-                    decoration: InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: NewColor.mint),borderRadius:BorderRadius.circular(25.0),
-                      ),
-                      labelText: "رقم الهاتف",
-                      border: OutlineInputBorder(borderRadius:BorderRadius.circular(25.0),
-                        borderSide: BorderSide(),
-                      ),
-                      prefixIcon: Icon(
-                        Icons.phone,color: NewColor.mint,
-                      ),
-                    ),
-                  ),
-
-                ),
+               Textfield1(phone, TextInputType.phone, Icon(Icons.phone,color: NewColor.mint,), "Phone number", "Please enter your hone number")
                 // المدينه
-                Padding(
-                  padding:  EdgeInsets.fromLTRB(25, 0, 25, 12),
-                  child: TextFormField(
-                    controller:city ,
-                    keyboardType:TextInputType.text ,
-                    onFieldSubmitted: (value){
-                      print(value);
-                    },
-                    onChanged: (value){
-                      print(value);
-                    },
-                    validator: (value)
-                    {
-                      if(value!.isEmpty)
-                      {
-                        return 'يرجي ادخال المدينه';
-                      }
-                      return null;
-                    },
-                    decoration: InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: NewColor.mint),borderRadius:BorderRadius.circular(25.0),
-                      ),
-                      labelText: "المدينه",
-                      border: OutlineInputBorder(borderRadius:BorderRadius.circular(25.0),
-                        borderSide: BorderSide(),
-                      ),
-                      prefixIcon: Icon(
-                        Icons.location_city,color: NewColor.mint,
-                      ),
-                    ),
-                  ),
-
-                ),
+                ,Textfield1(city, TextInputType.text, Icon(Icons.location_city_rounded,color: NewColor.mint,), "city", 'Please enter your city')
                 //الوصف
-                Padding(
-                  padding:  EdgeInsets.fromLTRB(25, 0, 25, 12),
-                  child: TextFormField(
-                    controller:description ,
-                    keyboardType:TextInputType.text ,
-                    onFieldSubmitted: (value){
-                      print(value);
-                    },
-                    onChanged: (value){
-                      print(value);
-                    },
-                    validator: (value)
-                    {
-                      if(value!.isEmpty)
-                      {
-                        return 'يرجي ادخال وصف';
-                      }
-                      return null;
-                    },
-                    decoration: InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: NewColor.mint),borderRadius:BorderRadius.circular(25.0),
-                      ),
-                      labelText: "الوصف",
-                      border: OutlineInputBorder(borderRadius:BorderRadius.circular(25.0),
-                        borderSide: BorderSide(),
-                      ),
-                      prefixIcon: Icon(
-                        Icons.accessibility,color: NewColor.mint,
-                      ),
-                    ),
-                  ),
-
-                ),
+               , Textfield1(description, TextInputType.text, Icon(Icons.title,color: NewColor.mint,), "description", "Please enter your description")
                 // سعر الحجز
-                Padding(
-                  padding: EdgeInsets.fromLTRB(25, 0, 25, 12),
-                  child: TextFormField(
-                    controller:reservationPrice ,
-                    keyboardType:TextInputType.number ,
-                    onFieldSubmitted: (value){
-                      print(value);
-                    },
-                    onChanged: (value){
-                      print(value);
-                    },
-                    validator: (value)
-                    {
-                      if(value!.isEmpty)
-                      {
-                        return 'يرجي ادخال سعر الحجز';
-                      }
-                      return null;
-                    },
-                    decoration: InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: NewColor.mint),borderRadius:BorderRadius.circular(25.0),
-                      ),
-                      labelText: "سعر الحجز",
-                      border: OutlineInputBorder(borderRadius:BorderRadius.circular(25.0),
-                        borderSide: BorderSide(),
-                      ),
-                      prefixIcon: Icon(
-                        Icons.monetization_on_rounded,color: NewColor.mint,
-                      ),
-                    ),
-                  ),
-
-                ),
+               ,Textfield1(reservationPrice, TextInputType.number, Icon(Icons.price_check,color: NewColor.mint,), "reservationPrice", "Please enter your reservationPrice")
                 // التخصص
-                Padding(
-                  padding:  EdgeInsets.fromLTRB(25, 0, 25, 12),
-                  child: TextFormField(
-                    controller:specialization ,
-                    keyboardType:TextInputType.text ,
-                    onFieldSubmitted: (value){
-                      print(value);
-                    },
-                    onChanged: (value){
-                      print(value);
-                    },
-                    validator: (value)
-                    {
-                      if(value!.isEmpty)
-                      {
-                        return 'يرجي ادخال التخصص';
-                      }
-                      return null;
-                    },
-                    decoration: InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: NewColor.mint),borderRadius:BorderRadius.circular(25.0),
-                      ),
-                      labelText: "التخصص",
-                      border: OutlineInputBorder(borderRadius:BorderRadius.circular(25.0),
-                        borderSide: BorderSide(),
-                      ),
-                      prefixIcon: Icon(
-                        Icons.health_and_safety,color: NewColor.mint,
-                      ),
-                    ),
-                  ),
-
-                ),
+                ,Textfield1(specialization, TextInputType.text, Icon(Icons.local_hospital_outlined,color: NewColor.mint,), "specialization", "Please enter your specialization")
                 // العنوان
-                Padding(
-                  padding: EdgeInsets.fromLTRB(25, 0, 25, 12),
-                  child: TextFormField(
-                    controller:address ,
-                    keyboardType:TextInputType.text ,
-                    onFieldSubmitted: (value){
-                      print(value);
-                    },
-                    onChanged: (value){
-                      print(value);
-                    },
-                    validator: (value)
-                    {
-                      if(value!.isEmpty)
-                      {
-                        return 'يرجي ادخال العنوان';
-                      }
-                      return null;
-                    },
-                    decoration: InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: NewColor.mint),borderRadius:BorderRadius.circular(25.0),
-                      ),
-                      labelText: "العنوان",
-                      border: OutlineInputBorder(borderRadius:BorderRadius.circular(25.0),
-                        borderSide: BorderSide(),
-                      ),
-                      prefixIcon: Icon(
-                        Icons.location_city_sharp,color: NewColor.mint,
-                      ),
-                    ),
-                  ),
-
-                ),
+               ,Textfield1(address, TextInputType.streetAddress, Icon(Icons.location_city_rounded,color: NewColor.mint,), "Address", "Please enter your address"),
                 // البريد
-                Padding(
-                  padding: EdgeInsets.fromLTRB(25, 0, 25, 12),
-                  child: TextFormField(
-                    controller:EmailReception ,
-                    keyboardType:TextInputType.emailAddress ,
-                    onFieldSubmitted: (value){
-                      print(value);
-                    },
-                    onChanged: (value){
-                      print(value);
-                    },
-                    validator: (value)
-                    {
-                      if(value!.isEmpty)
-                      {
-                        return 'يرجي ادخال البريد الالكتروني';
-                      }
-                      return null;
-                    },
-                    decoration: InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: NewColor.mint),borderRadius:BorderRadius.circular(25.0),
-                      ),
-                      labelText: "البريد الالكتروني الخاص بموظف الاستقبال",
-                      border: OutlineInputBorder(borderRadius:BorderRadius.circular(25.0),
-                        borderSide: BorderSide(),
-                      ),
-                      prefixIcon: Icon(
-                        Icons.email,color: NewColor.mint,
-                      ),
-                    ),
-                  ),
-
-                ),
+                Textfield1(EmailReception, TextInputType.emailAddress,Icon(Icons.email,color: NewColor.mint), "EmailReception", "please enter email reception"),
                 // كلمه المرور
                 Padding(
                   padding:  EdgeInsets.fromLTRB(25, 0, 25, 12),
@@ -462,13 +167,13 @@ class _SignUpState extends State<SignUp> {
                     {
                       if(value!.isEmpty)
                       {
-                        return 'يرجي ادخال كلمه المرور';
+                        return 'Please enter the password in at least 8 fields';
                       }
                       return null;
                     },
                     decoration: InputDecoration(
                       focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: NewColor.mint),borderRadius: BorderRadius.circular(25)),
-                      labelText: "كلمه المرور  الخاص بموظف الاستقبال ",
+                      labelText: " Enter the password ",
                       border: OutlineInputBorder(borderRadius:BorderRadius.circular(25.0),
                         borderSide: BorderSide(),),
                       prefixIcon: Icon(
@@ -478,7 +183,6 @@ class _SignUpState extends State<SignUp> {
                       suffixIcon: IconButton(
                         onPressed: ()
                         {
-
                           setState(() {
                             isPassword = !isPassword;
                           });
@@ -502,7 +206,8 @@ class _SignUpState extends State<SignUp> {
                       return null;
                     }
                   },
-                  child: Padding(
+                  child:
+                  Padding(
                     padding:  EdgeInsets.fromLTRB(25, 0, 25, 12),
                     child: Container(
                       width: width * 0.9,
@@ -513,7 +218,7 @@ class _SignUpState extends State<SignUp> {
                       ),
                       child: Center(
                           child: Text(
-                        "تسجيل الدخول",
+                        "Sign Up",
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.white,
@@ -531,10 +236,10 @@ class _SignUpState extends State<SignUp> {
                     TextSpan(
                       children: [
                         TextSpan(
-                            text: 'هل تمتلك حساب؟',
+                            text: 'Do you have an account? ',
                             style: TextStyle(color: NewColor.textColor)),
                         TextSpan(
-                          text: 'تسجيل',
+                          text: 'Login',
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: NewColor.mint),

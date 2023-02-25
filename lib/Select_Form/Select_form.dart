@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:graduation_project/Who%20are%20we/Screens/Who_are_we_login.dart';
+import 'package:graduation_project/Who%20are%20we/Who_are_we.dart';
 import 'package:graduation_project/new_color/New_Color.dart';
-import 'package:graduation_project/pages/SignupPage/SignUp.dart';
+
 class SelectForm extends StatefulWidget {
   const SelectForm({Key? key}) : super(key: key);
 
@@ -10,125 +12,107 @@ class SelectForm extends StatefulWidget {
 
 class _SelectFormState extends State<SelectForm> {
   @override
+  double fontsize = 24;
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: NewColor.mint,
+      backgroundColor: NewColor.border,
       body: SafeArea(
         child: Column(
           children: [
-            SizedBox(
-              height: height * 0.05,
+            Center(
+                child: Image.asset(
+              "lib/assets/images/logo/new logo.png",
+              height: height * 0.3,
+            )),
+            RichText(
+              textScaleFactor: 1.5,
+              textAlign: TextAlign.start,
+              text: TextSpan(
+                  text: "C",
+                  style: TextStyle(
+                      color: Colors.black, fontWeight: FontWeight.bold),
+                  children: [
+                    TextSpan(text: "a", style: TextStyle(color: NewColor.mint)),
+                    TextSpan(
+                        text: "re__رعــــ",
+                        style: TextStyle(color: Colors.black)),
+                    TextSpan(text: "ا", style: TextStyle(color: NewColor.mint)),
+                    TextSpan(
+                        text: "يــة", style: TextStyle(color: Colors.black)),
+                  ]),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text("نوع المستخدم",
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 24)),
-              ],
+            SizedBox(
+              height: 18,
+            ),
+            Text(
+              "Let’s get started!",
+              style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 18,),
+          const  Padding(
+              padding: const EdgeInsets.only(left: 20,right: 10),
+              child: Center(
+                child: Text(
+                  "Login to enjoy the features we’ve",
+                  style: TextStyle(fontSize: 18, color: Colors.grey),
+                ),
+              ),
+            ),
+          const  Padding(
+              padding: const EdgeInsets.only(left: 20,right: 10),
+              child: Center(
+                child: Text(
+                  "provided,and stay healthy!",
+                  style: TextStyle(fontSize: 18, color: Colors.grey),
+                ),
+              ),
             ),
             SizedBox(
-              height: height * 0.05,
+              height: height * 0.1,
             ),
             GestureDetector(
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUp()));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>WhoAreWeLogin()));
               },
               child: Container(
-                width: width * 0.5,
-                height: height * 0.07,
+                height: 70,
+                width: width * 0.8,
                 decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(25),
-                  border: Border.all(color: Colors.black),
+                  color: NewColor.mint,
+                  borderRadius: BorderRadius.circular(32),
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "دكتور",
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                  ],
-                ),
+                child: Center(
+                    child: Text(
+                  "Login",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      fontSize: 22),
+                )),
               ),
-            ),
-            SizedBox(
-              height: height * 0.05,
-            ),
+            ),SizedBox(height: 20,),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>WhoAreWe()));
+              },
               child: Container(
-                width: width * 0.5,
-                height: height * 0.07,
+                height: 70,
+                width: width * 0.8,
                 decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(25),
-                  border: Border.all(color: Colors.black),
+                  color: NewColor.border,
+                  border: Border.all(color: NewColor.mint),
+                  borderRadius: BorderRadius.circular(32),
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "ممرض",
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            SizedBox(
-              height: height * 0.05,
-            ),
-            GestureDetector(
-              onTap: () {},
-              child: Container(
-                width: width * 0.5,
-                height: height * 0.07,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(25),
-                  border: Border.all(color: Colors.black),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "استقبال",
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            SizedBox(
-              height: height * 0.05,
-            ),
-            GestureDetector(
-              onTap: () {},
-              child: Container(
-                width: width * 0.5,
-                height: height * 0.07,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(25),
-                  border: Border.all(color: Colors.black),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "مريض",
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                  ],
-                ),
+                child: Center(
+                    child: Text(
+                  "Sign Up",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: NewColor.mint,
+                      fontSize: 22),
+                )),
               ),
             ),
           ],
