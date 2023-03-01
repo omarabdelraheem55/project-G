@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:graduation_project/new_color/New_Color.dart';
+import 'package:graduation_project/helper/New_Color.dart';
 class Doctors_Screen extends StatefulWidget {
 
   @override

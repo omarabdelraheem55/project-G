@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:graduation_project/new_color/New_Color.dart';
-import 'package:graduation_project/pages/LogIn/login.dart';
-import 'package:graduation_project/pages/SignupPage/SignUpPatient.dart';
-class WhoAreWeLogin extends StatefulWidget {
-  const WhoAreWeLogin({Key? key}) : super(key: key);
+import 'package:graduation_project/helper/New_Color.dart';
+import 'package:graduation_project/screens/login.dart';
+import 'package:graduation_project/screens/SignUpDoctor.dart';
+import 'package:graduation_project/screens/SignUpPatient.dart';
+class WhoAreWe extends StatefulWidget {
+  const WhoAreWe({Key? key}) : super(key: key);
   @override
-  State<WhoAreWeLogin> createState() => _WhoAreWeLoginState();
+  State<WhoAreWe> createState() => _WohAreWeState();
 }
-class _WhoAreWeLoginState extends State<WhoAreWeLogin> {
+class _WohAreWeState extends State<WhoAreWe> {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
@@ -30,12 +31,12 @@ class _WhoAreWeLoginState extends State<WhoAreWeLogin> {
                 SizedBox(height: height*0.04,),
                 Row(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 30,right: 5),
-                      child: Image.asset("lib/assets/images/img_6.png",scale: 1.5,),
-                    ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 30,right: 5),
+                          child: Image.asset("lib/assets/images/img_6.png",scale: 1.5,),
+                        ),
                     TextButton(onPressed: (){
-                      Route route=MaterialPageRoute(builder: (context)=>Login());
+                      Route route=MaterialPageRoute(builder: (context)=>SignUp());
                       Navigator.push(context, route);
                     }, child: Text("Doctor",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: NewColor.mint),))
                   ],
@@ -48,7 +49,7 @@ class _WhoAreWeLoginState extends State<WhoAreWeLogin> {
                       child: Image.asset("lib/assets/images/img_5.png",scale: 1.5,),
                     ),
                     TextButton(onPressed: (){
-                      Route route=MaterialPageRoute(builder: (context)=>Login());
+                      Route route=MaterialPageRoute(builder: (context)=>SignUpPatient());
                       Navigator.push(context, route);
                     }, child: Text("patient",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: NewColor.mint),))
                   ],
@@ -60,25 +61,10 @@ class _WhoAreWeLoginState extends State<WhoAreWeLogin> {
                       padding: const EdgeInsets.only(left: 30,right: 5),
                       child: Image.asset("lib/assets/images/img_7.png",scale: 1.5,),
                     ),
-                    TextButton(onPressed: (){
-                      Route route=MaterialPageRoute(builder: (context)=>Login());
-                      Navigator.push(context, route);
-                    }, child: Text("Nurses",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: NewColor.mint),))
+                    TextButton(onPressed: (){}, child: Text("Nurses",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: NewColor.mint),))
                   ],
                 ),
-                SizedBox(height: height*0.07,),
-                Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 30,right: 5),
-                      child: Image.asset("lib/assets/images/img_7.png",scale: 1.5,),
-                    ),
-                    TextButton(onPressed: (){
-                      Route route=MaterialPageRoute(builder: (context)=>Login());
-                      Navigator.push(context, route);
-                    }, child: Text("Recepion",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: NewColor.mint),))
-                  ],
-                ),
+
               ],
             ),
           ))

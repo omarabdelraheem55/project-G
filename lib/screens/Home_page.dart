@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:graduation_project/Dashbord.dart';
+import 'package:graduation_project/screens/Dashbord.dart';
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
   @override
@@ -76,16 +76,7 @@ class _HomePageState extends State<HomePage> {
         title: _isSearch? buildtextfaild():buildAppBarTitle(),
         actions: _buildAppBarAction(),
       ),
-      body: ListView.builder(
-        itemCount:2,
-        shrinkWrap: true,
-        physics: ClampingScrollPhysics(),
-        itemBuilder: (BuildContext context, int index) {
-          return
-          // شفت الشاشه دي انا عايز بقا اعمل سيرش فيها و في الابلكيشن كله عموما يعني فيه شاشه كمان بتاع بنك الدم عايز اعمل سيرش يفلتر مثلا عايز ابحث عن الي فصيله دمه A+ بس وهكذا
-            Dashbord();
-        },
-      ),
+      body: Dashbord()
     );
   }
 }

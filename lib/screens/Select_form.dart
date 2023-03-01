@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:graduation_project/Who%20are%20we/Screens/Who_are_we_login.dart';
-import 'package:graduation_project/Who%20are%20we/Who_are_we.dart';
-import 'package:graduation_project/new_color/New_Color.dart';
+import 'package:graduation_project/screens/Who_are_we_login.dart';
+import 'package:graduation_project/screens/Who_are_we_signup.dart';
+import 'package:graduation_project/helper/New_Color.dart';
 
 class SelectForm extends StatefulWidget {
   const SelectForm({Key? key}) : super(key: key);

@@ -1,11 +1,11 @@
 
 import 'package:flutter/material.dart';
-import 'package:graduation_project/new_color/New_Color.dart';
-import 'package:graduation_project/pages/Button_nav_bar.dart';
-import 'package:graduation_project/pages/Home_page.dart';
+import 'package:graduation_project/helper/New_Color.dart';
+import 'package:graduation_project/screens/Button_nav_bar.dart';
+import 'package:graduation_project/screens/Home_page.dart';
 
-import '../../Componant/componant.dart';
-import '../All_Doctors/SignUp.dart';
+import '../widgets/componant.dart';
+import 'SignUpDoctor.dart';
 class Login extends StatefulWidget {
 
   @override

@@ -1,7 +1,8 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:graduation_project/Who%20are%20we/Screens/screens.dart';
-import 'new_color/New_Color.dart';
+import 'package:graduation_project/search/search.dart';
+import 'helper/New_Color.dart';
+import 'screens/welcomePage.dart';
 
 void main() {
   runApp(const MyApp());

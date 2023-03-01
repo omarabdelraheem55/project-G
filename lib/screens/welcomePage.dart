@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:graduation_project/Select_Form/Select_form.dart';
-import 'package:graduation_project/Who%20are%20we/Who_are_we.dart';
-import 'package:graduation_project/new_color/New_Color.dart';
+import 'package:graduation_project/screens/Select_form.dart';
+import 'package:graduation_project/screens/Who_are_we_signup.dart';
+import 'package:graduation_project/helper/New_Color.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class Screens extends StatefulWidget {
@@ -50,7 +50,7 @@ class _ScreensState extends State<Screens> {
                     ],
                   ),
                 ),
-             SingleChildScrollView(child:    Column(
+                SingleChildScrollView(child:    Column(
                children: [
                  Padding(
                    padding: const EdgeInsets.fromLTRB(15, 35, 30, 30),

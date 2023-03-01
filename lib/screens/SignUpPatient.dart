@@ -1,31 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:graduation_project/Componant/componant.dart';
-import 'package:graduation_project/pages/Button_nav_bar.dart';
-import 'package:graduation_project/pages/LogIn/login.dart';
-import '../../new_color/New_Color.dart';
+import 'package:graduation_project/widgets/componant.dart';
+import 'package:graduation_project/screens/Button_nav_bar.dart';
+import 'package:graduation_project/screens/login.dart';
+import '../helper/New_Color.dart';
 
-class SignUp extends StatefulWidget {
-  const SignUp({Key? key}) : super(key: key);
+class SignUpPatient extends StatefulWidget {
+  const SignUpPatient({Key? key}) : super(key: key);
 
   @override
-  State<SignUp> createState() => _SignUpState();
+  State<SignUpPatient> createState() => _SignUpPatientState();
 }
 
-class _SignUpState extends State<SignUp> {
+class _SignUpPatientState extends State<SignUpPatient> {
   TextEditingController email = TextEditingController();
   TextEditingController name = TextEditingController();
   TextEditingController password = TextEditingController();
-  TextEditingController phone = TextEditingController();
-  TextEditingController city = TextEditingController();
-  TextEditingController description = TextEditingController();
-  TextEditingController reservationPrice = TextEditingController();
-  TextEditingController specialization = TextEditingController();
-  TextEditingController address = TextEditingController();
-  TextEditingController EmailReception = TextEditingController();
-  TextEditingController PasswordReception = TextEditingController();
   bool isPassword = true;
   bool isLoading = false;
   bool value = true;
+  bool ispassword = false;
+  bool agreement = false;
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -33,8 +27,7 @@ class _SignUpState extends State<SignUp> {
     final width = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
-        appBar:
-        AppBar(
+        appBar:AppBar(
           elevation: 20,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(
@@ -43,13 +36,13 @@ class _SignUpState extends State<SignUp> {
           ),
           automaticallyImplyLeading: false,
           title:
-        Center(
-          child: Text("Sign Up" ,
-            style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: width * 0.058,
-                color: Colors.white),),
-        ),
+          Center(
+            child: Text("Sign Up" ,
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: width * 0.058,
+                  color: Colors.white),),
+          ),
           backgroundColor: NewColor.mint,
         ),
         body: SingleChildScrollView(
@@ -136,68 +129,54 @@ class _SignUpState extends State<SignUp> {
                     ),
                   ),
                 ),
-                //رقم الهاتف
-               Textfield1(phone, TextInputType.phone, Icon(Icons.phone,color: NewColor.mint,), "Phone number", "Please enter your hone number")
-                // المدينه
-                ,Textfield1(city, TextInputType.text, Icon(Icons.location_city_rounded,color: NewColor.mint,), "city", 'Please enter your city')
-                //الوصف
-               , Textfield1(description, TextInputType.text, Icon(Icons.title,color: NewColor.mint,), "description", "Please enter your description")
-                // سعر الحجز
-               ,Textfield1(reservationPrice, TextInputType.number, Icon(Icons.price_check,color: NewColor.mint,), "reservationPrice", "Please enter your reservationPrice")
-                // التخصص
-                ,Textfield1(specialization, TextInputType.text, Icon(Icons.local_hospital_outlined,color: NewColor.mint,), "specialization", "Please enter your specialization")
-                // العنوان
-               ,Textfield1(address, TextInputType.streetAddress, Icon(Icons.location_city_rounded,color: NewColor.mint,), "Address", "Please enter your address"),
-                // البريد
-                Textfield1(EmailReception, TextInputType.emailAddress,Icon(Icons.email,color: NewColor.mint), "EmailReception", "please enter email reception"),
-                // كلمه المرور
-                Padding(
-                  padding:  EdgeInsets.fromLTRB(25, 0, 25, 12),
-                  child: TextFormField(
-                    controller: PasswordReception,
-                    keyboardType:TextInputType.visiblePassword,
-                    obscureText: isPassword,
-                    onFieldSubmitted: (value){
-                      print(value);
-                    },
-                    onChanged: (value){
-                      print(value);
-                    },
-                    validator: (value)
+                SizedBox(
+                  height: width * 0.1,
+                ),
+                ListTile(
+                  leading: Checkbox(value:agreement ,
+                    activeColor: Color(0xff2d9b95),
+                    onChanged: (value)
                     {
-                      if(value!.isEmpty)
-                      {
-                        return 'Please enter the password in at least 8 fields';
-                      }
-                      return null;
+                      setState(() {
+                        agreement =value!;
+                      });
                     },
-                    decoration: InputDecoration(
-                      focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: NewColor.mint),borderRadius: BorderRadius.circular(25)),
-                      labelText: " Enter the password ",
-                      border: OutlineInputBorder(borderRadius:BorderRadius.circular(25.0),
-                        borderSide: BorderSide(),),
-                      prefixIcon: Icon(
-                        Icons.lock,color: NewColor.mint,
-                      ),
 
-                      suffixIcon: IconButton(
-                        onPressed: ()
-                        {
-                          setState(() {
-                            isPassword = !isPassword;
-                          });
-                        },
-                        icon: isPassword ? Icon(
-                          Icons.visibility,color: NewColor.mint,
-                        ):Icon(
-                          Icons.visibility_off,color: NewColor.mint,
-                        ) ,
-                      ),
+                  ),
+                  title: RichText(
+                    textAlign: TextAlign.start,
+                    text: TextSpan(text: "I agree to the medidoc",
+                        style: TextStyle(
+                            fontSize:MediaQuery.of(context).size.width*0.04 ,
+                            color: Colors.black
+                        ),
+                        children: [
+                          TextSpan(text: " Terms of Service ",
+                              style: TextStyle(
+                                  fontSize:MediaQuery.of(context).size.width*0.04 ,
+                                  color: Color(0xff2d9b95)
+                              )
+                          ),
+                          TextSpan(text: " and ",
+                              style: TextStyle(
+                                  fontSize:MediaQuery.of(context).size.width*0.04 ,
+                                  color: Colors.black
+                              )
+                          ),
+                          TextSpan(text: "Privacy Policy  ",
+                              style: TextStyle(
+                                  fontSize:MediaQuery.of(context).size.width*0.04 ,
+                                  color: Color(0xff2d9b95)
+                              )
+                          ),
+
+                        ]
+
                     ),
                   ),
                 ),
                 SizedBox(
-                  height: width * 0.1,
+                  height: width * 0.06,
                 ),
                 GestureDetector(
                   onTap: () {
@@ -209,22 +188,29 @@ class _SignUpState extends State<SignUp> {
                   child:
                   Padding(
                     padding:  EdgeInsets.fromLTRB(25, 0, 25, 12),
-                    child: Container(
+                    child:Container(
+                      decoration: BoxDecoration(  color: agreement? NewColor.mint:Colors.grey[500],borderRadius: BorderRadius.circular(32)),
                       width: width * 0.9,
                       height: height * 0.073,
-                      decoration: BoxDecoration(
-                        color: NewColor.mint,
-                        borderRadius: BorderRadius.circular(32),
+                      child: MaterialButton( onPressed: agreement ?(
+                          ){
+                        if(_formKey.currentState!.validate()) {
+                          Route route =MaterialPageRoute(builder: (context)=>BottomNavigation());
+                          Navigator.pushReplacement(context,route);
+                        }
+
+                        // Navigator.push(context, MaterialPageRoute(builder:(context)=> MessengerScreen()));
+                      }:null,
+                        child: Text("Sign Up",
+                          style: TextStyle(
+                              color: Colors.white ,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold
+                          ),
+                        ),
+
                       ),
-                      child: Center(
-                          child: Text(
-                        "Sign Up",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                            fontSize: 22),
-                      )),
-                    ),
+                    )
                   ),
                 ),
                 SizedBox(
