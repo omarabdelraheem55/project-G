@@ -3,6 +3,8 @@ import 'package:graduation_project/helper/New_Color.dart';
 import 'package:graduation_project/screens/login.dart';
 import 'package:graduation_project/screens/SignUpDoctor.dart';
 import 'package:graduation_project/screens/SignUpPatient.dart';
+
+import 'SignU[Nurse.dart';
 class WhoAreWe extends StatefulWidget {
   const WhoAreWe({Key? key}) : super(key: key);
   @override
@@ -61,7 +63,10 @@ class _WohAreWeState extends State<WhoAreWe> {
                       padding: const EdgeInsets.only(left: 30,right: 5),
                       child: Image.asset("lib/assets/images/img_7.png",scale: 1.5,),
                     ),
-                    TextButton(onPressed: (){}, child: Text("Nurses",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: NewColor.mint),))
+                    TextButton(onPressed: (){
+                      Route route=MaterialPageRoute(builder: (context)=>SignUpNurse());
+                      Navigator.push(context, route);
+                    }, child: Text("Nurses",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: NewColor.mint),))
                   ],
                 ),
 

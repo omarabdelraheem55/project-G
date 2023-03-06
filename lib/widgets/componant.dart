@@ -1,4 +1,6 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:graduation_project/helper/New_Color.dart';
 import 'package:flutter/material.dart';
 
@@ -39,7 +41,8 @@ Widget Textfield1(
 ) {
   return Padding(
     padding: EdgeInsets.fromLTRB(25, 0, 25, 12),
-    child: TextFormField(
+    child:
+    TextFormField(
       controller: controller,
       keyboardType: TextInputType,
       onFieldSubmitted: (value) {
@@ -139,7 +142,7 @@ Widget PopularDoctor(
                     width: width * 0.06,
                   ),
                   Text(
-                    "DR: $name",
+                    name,
                     style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
@@ -166,15 +169,15 @@ Widget PopularDoctor(
     ),
   );
 }
-Widget PopularNurse({
-  required width,
-  required height,
-  required String image,
-  required String name,
-  required String type,
-  required double evaluation
-}){
-  return   Padding(
+
+Widget PopularNurse(
+    {required width,
+    required height,
+    required String image,
+    required String name,
+    required String type,
+    required double evaluation}) {
+  return Padding(
     padding: const EdgeInsets.all(8.0),
     child: Row(
       children: [
@@ -193,8 +196,7 @@ Widget PopularNurse({
               ),
               Expanded(
                 child: ClipRRect(
-                  child: Image.asset(
-                      "lib/assets/images/acc_doc4.jpg"),
+                  child: Image.asset("lib/assets/images/acc_doc4.jpg"),
                   borderRadius: BorderRadius.circular(25),
                 ),
               ),
@@ -241,12 +243,12 @@ Widget PopularNurse({
     ),
   );
 }
-Widget UpComingAppoinment(
-{
-  required width,required height,
-}
-    ){
-  return   Container(
+
+Widget UpComingAppoinment({
+  required width,
+  required height,
+}) {
+  return Container(
     decoration: BoxDecoration(
       color: Colors.white,
       border: Border.all(color: Colors.grey),
@@ -259,8 +261,7 @@ Widget UpComingAppoinment(
             const Padding(
               padding: EdgeInsets.all(8.0),
               child: CircleAvatar(
-                backgroundImage: AssetImage(
-                    "lib/assets/images/doctora.jpg"),
+                backgroundImage: AssetImage("lib/assets/images/doctora.jpg"),
                 radius: 50,
               ),
             ),
@@ -318,8 +319,7 @@ Widget UpComingAppoinment(
           padding: const EdgeInsets.all(8.0),
           child: Row(
             children: [
-              Image.asset("lib/assets/images/img_1.png",
-                  width: width * 0.06),
+              Image.asset("lib/assets/images/img_1.png", width: width * 0.06),
               SizedBox(
                 width: width * 0.02,
               ),
@@ -331,8 +331,7 @@ Widget UpComingAppoinment(
           padding: const EdgeInsets.all(8.0),
           child: Row(
             children: [
-              Image.asset("lib/assets/images/img_2.png",
-                  width: width * 0.06),
+              Image.asset("lib/assets/images/img_2.png", width: width * 0.06),
               SizedBox(
                 width: width * 0.02,
               ),
@@ -344,8 +343,7 @@ Widget UpComingAppoinment(
           padding: const EdgeInsets.all(8.0),
           child: Row(
             children: [
-              Image.asset("lib/assets/images/img_3.png",
-                  width: width * 0.06),
+              Image.asset("lib/assets/images/img_3.png", width: width * 0.06),
               SizedBox(
                 width: width * 0.02,
               ),
@@ -375,4 +373,49 @@ Widget UpComingAppoinment(
       ],
     ),
   );
+}
+
+Widget TextFaildDonate({
+  @required controller,
+  @required TextInputType,
+  @required icon,
+  required String labelText,
+  required String valiedText,
+}) {
+  return Padding(
+      padding: const EdgeInsets.all(12.0),
+      child: Card(
+        elevation: 4.0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+        color: Colors.white,
+        child: TextFormField(
+          keyboardType: TextInputType,
+          onFieldSubmitted: (value) {
+            print(value);
+          },
+          onChanged: (value) {
+            print(value);
+          },
+          validator: (value) {
+            if (value!.isEmpty) {
+              return '$valiedText';
+            }
+            return null;
+          },
+          decoration: InputDecoration(
+            focusColor: Colors.black12,
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: NewColor.mint),
+            ),
+            labelText: "$labelText",
+            border: OutlineInputBorder(
+              borderSide: BorderSide(),
+            ),
+            prefixIcon:icon,
+
+          ),
+        ),
+      ));
 }

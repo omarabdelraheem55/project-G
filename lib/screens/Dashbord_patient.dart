@@ -11,6 +11,14 @@ class Dashbord extends StatefulWidget {
 }
 
 class _DashbordState extends State<Dashbord> {
+List<String>doctors=[
+  "Dr: Soher abaas",
+  "Dr: Menaa sameh",
+  "Dr: Abeer zian",
+  "Dr: vevian bachoy",
+  "Dr: Zenb mahmoud",
+  "Dr: hadeer samy",
+];
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
@@ -44,33 +52,6 @@ class _DashbordState extends State<Dashbord> {
                     )
                   ],
                 ),
-                // Padding(
-                //   padding: const EdgeInsets.all(8.0),
-                //   child: Row(
-                //     children: [
-                //       Container(
-                //         width: width * 0.9,
-                //         height: 50,
-                //         decoration: BoxDecoration(
-                //             color: Colors.grey.shade50,
-                //             border: Border.all(color: Colors.grey.shade400),
-                //             borderRadius: BorderRadius.circular(25)),
-                //         child: Center(
-                //           child: TextField(
-                //             decoration: InputDecoration(
-                //               prefixIcon: const Icon(
-                //                 Icons.search,
-                //                 color: Colors.grey,
-                //               ),
-                //               border: InputBorder.none,
-                //               hintText: 'search for doctor and categaries..',
-                //             ),
-                //           ),
-                //         ),
-                //       )
-                //     ],
-                //   ),
-                // ),
                 Column(
                   children: [
                     Padding(
@@ -95,7 +76,7 @@ class _DashbordState extends State<Dashbord> {
                             width: width,
                             height: height,
                             image: "lib/assets/images/acc_doc4.jpg",
-                            name: "sara",
+                            name:"${doctors[0].substring(0,15)}",
                             type: "type",
                             evaluation: 4.2,
                           ),
@@ -103,7 +84,7 @@ class _DashbordState extends State<Dashbord> {
                             width: width,
                             height: height,
                             image: "lib/assets/images/acc_doc4.jpg",
-                            name: "sara",
+                            name: "${doctors[1].substring(0,15)}",
                             type: "type",
                             evaluation: 4.2,
                           ),
@@ -111,7 +92,7 @@ class _DashbordState extends State<Dashbord> {
                             width: width,
                             height: height,
                             image: "lib/assets/images/acc_doc4.jpg",
-                            name: "sara",
+                            name: "${doctors[2].substring(0,14)}",
                             type: "type",
                             evaluation: 4.2,
                           ),
@@ -119,7 +100,7 @@ class _DashbordState extends State<Dashbord> {
                             width: width,
                             height: height,
                             image: "lib/assets/images/acc_doc4.jpg",
-                            name: "sara",
+                            name:"${doctors[3].substring(0,15)}",
                             type: "type",
                             evaluation: 4.2,
                           ),

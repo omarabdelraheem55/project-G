@@ -4,7 +4,6 @@ class SearchScreenTest extends StatefulWidget {
   @override
   State<SearchScreenTest> createState() => _SearchScreenTestState();
 }
-
 class _SearchScreenTestState extends State<SearchScreenTest> {
   TextEditingController controller = TextEditingController();
   String text = '';
