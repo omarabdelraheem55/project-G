@@ -3,10 +3,11 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:graduation_project/helper/New_Color.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-Widget build_containar() {
+Widget build_containar({required double h}) {
   return Padding(
     padding: EdgeInsets.fromLTRB(25, 0, 25, 12),
     child: Container(
+      height: h,
       decoration: BoxDecoration(
         color: NewColor.mint,
         borderRadius: BorderRadius.circular(32),
@@ -80,7 +81,6 @@ class CustomShap extends CustomClipper<Path> {
     path.quadraticBezierTo(width / 2, height, width, height - 50);
     path.lineTo(width, 0);
     path.close();
-
     return path;
   }
 

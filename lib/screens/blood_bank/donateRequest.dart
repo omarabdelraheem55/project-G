@@ -18,6 +18,8 @@ class _DonateRequestState extends State<DonateRequest> {
   var formkey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -74,7 +76,9 @@ class _DonateRequestState extends State<DonateRequest> {
                    build_Blood_Type(image: "https://assets2.lottiefiles.com/packages/lf20_lsfhjhqp.json", type: "AB-"),
                   ],
                 ),
-              )
+              ),
+              SizedBox(height: 20,),
+              build_containar(h: height*0.08)
             ],
           ),
         ),
