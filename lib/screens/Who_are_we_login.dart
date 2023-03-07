@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/helper/New_Color.dart';
-import 'package:graduation_project/screens/login.dart';
-import 'package:graduation_project/screens/SignUpPatient.dart';
+import 'package:graduation_project/screens/doctor/login_doctor.dart';
+import 'package:graduation_project/screens/nurse/login_nurse.dart';
+import 'package:graduation_project/screens/patient/login_patient.dart';
+import 'package:graduation_project/screens/reception/login_reception.dart';
 class WhoAreWeLogin extends StatefulWidget {
   const WhoAreWeLogin({Key? key}) : super(key: key);
   @override
@@ -35,7 +37,7 @@ class _WhoAreWeLoginState extends State<WhoAreWeLogin> {
                       child: Image.asset("lib/assets/images/img_6.png",scale: 1.5,),
                     ),
                     TextButton(onPressed: (){
-                      Route route=MaterialPageRoute(builder: (context)=>Login());
+                      Route route=MaterialPageRoute(builder: (context)=>LoginDoctor());
                       Navigator.push(context, route);
                     }, child: Text("Doctor",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: NewColor.mint),))
                   ],
@@ -48,7 +50,7 @@ class _WhoAreWeLoginState extends State<WhoAreWeLogin> {
                       child: Image.asset("lib/assets/images/img_5.png",scale: 1.5,),
                     ),
                     TextButton(onPressed: (){
-                      Route route=MaterialPageRoute(builder: (context)=>Login());
+                      Route route=MaterialPageRoute(builder: (context)=>LoginPatient());
                       Navigator.push(context, route);
                     }, child: Text("patient",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: NewColor.mint),))
                   ],
@@ -61,7 +63,7 @@ class _WhoAreWeLoginState extends State<WhoAreWeLogin> {
                       child: Image.asset("lib/assets/images/img_7.png",scale: 1.5,),
                     ),
                     TextButton(onPressed: (){
-                      Route route=MaterialPageRoute(builder: (context)=>Login());
+                      Route route=MaterialPageRoute(builder: (context)=>LoginNurse());
                       Navigator.push(context, route);
                     }, child: Text("Nurses",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: NewColor.mint),))
                   ],
@@ -74,7 +76,7 @@ class _WhoAreWeLoginState extends State<WhoAreWeLogin> {
                       child: Image.asset("lib/assets/images/img_7.png",scale: 1.5,),
                     ),
                     TextButton(onPressed: (){
-                      Route route=MaterialPageRoute(builder: (context)=>Login());
+                      Route route=MaterialPageRoute(builder: (context)=>LoginReception());
                       Navigator.push(context, route);
                     }, child: Text("Recepion",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: NewColor.mint),))
                   ],

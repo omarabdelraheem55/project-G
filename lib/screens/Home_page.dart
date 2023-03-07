@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/helper/New_Color.dart';
-import 'package:graduation_project/screens/Dashbord_patient.dart';
-import 'package:graduation_project/screens/SignU%5BNurse.dart';
+import 'package:graduation_project/screens/patient/Dashbord_patient.dart';
+import 'package:graduation_project/screens/nurse/SignU%5BNurse.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

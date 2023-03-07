@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:graduation_project/helper/New_Color.dart';
 import 'package:flutter/material.dart';
-
+import 'package:lottie/lottie.dart';
 Widget build_containar() {
   return Padding(
     padding: EdgeInsets.fromLTRB(25, 0, 25, 12),
@@ -21,9 +20,7 @@ Widget build_containar() {
     ),
   );
 }
-
 Widget build_containar_curcal() {
-  BuildContext context;
   return Container(
     width: 50,
     height: 100,
@@ -416,6 +413,26 @@ Widget TextFaildDonate({
             prefixIcon:icon,
 
           ),
+        ),
+      ));
+}
+Widget build_Blood_Type({
+  required String image,
+  required String type,
+}){
+  return Container(
+      width: 150,
+      height: 150,
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(16)),
+      child: Padding(
+        padding: EdgeInsets.all(12),
+        child: Column(
+          children: [
+            Lottie.network(image,width:100,),
+            Expanded(child: Text(type,  style: TextStyle(color: Colors.black, fontSize: 16),)),
+          ],
         ),
       ));
 }

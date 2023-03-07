@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lottie/lottie.dart';
-import '../helper/New_Color.dart';
+import '../../helper/New_Color.dart';
 class Donate extends StatefulWidget {
   @override
   State<Donate> createState() => _DonateState();
@@ -14,7 +14,8 @@ class _DonateState extends State<Donate> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
-        appBar: AppBar(
+        appBar:
+        AppBar(
           title: Text(
             "All donators",
             style: TextStyle(color: NewColor.mint),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:graduation_project/helper/New_Color.dart';
-import 'package:graduation_project/screens/donate.dart';
+import 'package:graduation_project/screens/blood_bank/donate.dart';
 import 'package:lottie/lottie.dart';
 
 import 'donateRequest.dart';

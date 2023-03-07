@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/helper/New_Color.dart';
-import 'package:graduation_project/screens/All_doctors.dart';
+import 'package:graduation_project/screens/doctor/All_doctors.dart';
+import 'package:graduation_project/screens/blood_bank/bloodBank.dart';
+import 'package:graduation_project/screens/blood_bank/donate.dart';
 import 'package:graduation_project/widgets/componant.dart';
-import 'All_nurse.dart';
+import '../nurse/All_nurse.dart';
 
 class Dashbord extends StatefulWidget {
   Dashbord({Key? key}) : super(key: key);
@@ -338,27 +340,32 @@ List<String>doctors=[
                     ],
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    width: width * 0.92,
-                    height: height * 0.18,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(color: Colors.grey),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        children: [
-                          Image.asset("lib/assets/images/img_4.png"),
-                          Expanded(
-                            child: Text("A service that allows you to donate or"
-                                " request a donation and communicate "
-                                "with institutions to provide the service"),
-                          )
-                        ],
+                GestureDetector(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>BloodBank()));
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      width: width * 0.92,
+                      height: height * 0.18,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border.all(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          children: [
+                            Image.asset("lib/assets/images/img_4.png"),
+                            Expanded(
+                              child: Text("A service that allows you to donate or"
+                                  " request a donation and communicate "
+                                  "with institutions to provide the service"),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),

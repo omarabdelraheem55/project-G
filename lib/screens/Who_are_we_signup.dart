@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/helper/New_Color.dart';
-import 'package:graduation_project/screens/login.dart';
-import 'package:graduation_project/screens/SignUpDoctor.dart';
-import 'package:graduation_project/screens/SignUpPatient.dart';
+import 'package:graduation_project/screens/doctor/SignUpDoctor.dart';
+import 'package:graduation_project/screens/patient/SignUpPatient.dart';
 
-import 'SignU[Nurse.dart';
+import 'nurse/SignU[Nurse.dart';
 class WhoAreWe extends StatefulWidget {
   const WhoAreWe({Key? key}) : super(key: key);
   @override
@@ -38,7 +37,7 @@ class _WohAreWeState extends State<WhoAreWe> {
                           child: Image.asset("lib/assets/images/img_6.png",scale: 1.5,),
                         ),
                     TextButton(onPressed: (){
-                      Route route=MaterialPageRoute(builder: (context)=>SignUp());
+                      Route route=MaterialPageRoute(builder: (context)=>SignUpDoctor());
                       Navigator.push(context, route);
                     }, child: Text("Doctor",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: NewColor.mint),))
                   ],

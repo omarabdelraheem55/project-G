@@ -1,8 +1,9 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:graduation_project/screens/Home_page.dart';
+import 'package:graduation_project/screens/Splash_screen.dart';
 import 'package:graduation_project/search/search.dart';
-import 'package:graduation_project/screens/bloodBank.dart';
+import 'package:graduation_project/screens/blood_bank/bloodBank.dart';
 import 'helper/New_Color.dart';
 import 'screens/welcomePage.dart';
 
@@ -40,7 +41,23 @@ class MyApp extends StatelessWidget {
         // is not restarted.
       ),
       home:
-      BloodBank(
-      ),);
+      AnimatedSplashScreen(
+      splashIconSize: double.infinity,
+    splashTransition: SplashTransition.fadeTransition,
+    duration: 3000,
+    splash:Container(
+      height: double.infinity,
+      width: double.infinity,
+      decoration: BoxDecoration(
+          color:Color(0xFF199A8E)          // gradient: LinearGradient(
+      ),
+      child: Column(
+        children: [
+          SizedBox(height: 10),
+          Image.asset("lib/assets/images/logo/new logo.png",height:10)
+        ],
+      ),
+    ), nextScreen: Screens(),
+     ));
   }
 }

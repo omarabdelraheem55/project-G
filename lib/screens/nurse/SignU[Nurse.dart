@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:graduation_project/screens/Who_are_we_login.dart';
 import 'package:graduation_project/widgets/componant.dart';
 import 'package:graduation_project/screens/Button_nav_bar.dart';
-import 'package:graduation_project/screens/login.dart';
+import 'package:graduation_project/screens/doctor/login_doctor.dart';
 import 'package:lottie/lottie.dart';
-import '../helper/New_Color.dart';
+import '../../helper/New_Color.dart';
 
 class SignUpNurse extends StatefulWidget {
   const SignUpNurse({Key? key}) : super(key: key);
@@ -200,7 +201,7 @@ class _SignUpNurseState extends State<SignUpNurse> {
                   height: width * 0.06,
                 ),
                 GestureDetector(
-                  onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>Login()));},
+                  onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>WhoAreWeLogin()));},
                   child: Text.rich(
                     TextSpan(
                       children: [
