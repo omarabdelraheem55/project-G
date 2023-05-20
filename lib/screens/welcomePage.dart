@@ -27,7 +27,8 @@ class _ScreensState extends State<Screens> {
               controller: controller,
               children: [
                 SingleChildScrollView(
-                  child: Column(
+                  child:
+                  Column(
                     children: [
                       Padding(
                         padding: const EdgeInsets.fromLTRB(15, 35, 30, 30),
@@ -89,13 +90,13 @@ class _ScreensState extends State<Screens> {
                   TextButton(onPressed: (){
                     Route route=MaterialPageRoute(builder: (context)=>SelectForm());
                     Navigator.pushReplacement(context, route);
-                  }, child:  Text("Let's Go..!",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),),)
+                  }, child:  Text("Let's Go..!",style: TextStyle(color:NewColor.mint,fontWeight: FontWeight.bold,fontSize: 18),),)
                 ],
               ),)
               ],
             ),
           ),
-          SmoothPageIndicator(controller: controller, count: 3,effect: SwapEffect(dotHeight: 18,dotWidth: 18,activeDotColor: NewColor.mint),)
+           SmoothPageIndicator(controller: controller, count: 3,effect:SwapEffect(type: SwapType.yRotation,dotHeight: 18,dotWidth: 30,activeDotColor: NewColor.mint),)
         ],
       ),
     );

@@ -5,6 +5,7 @@ import 'package:graduation_project/screens/Splash_screen.dart';
 import 'package:graduation_project/search/search.dart';
 import 'package:graduation_project/screens/blood_bank/bloodBank.dart';
 import 'helper/New_Color.dart';
+import 'screens/patient/login_patient.dart';
 import 'screens/welcomePage.dart';
 
 void main() {
@@ -28,7 +29,8 @@ class MyApp extends StatelessWidget {
         //   Locale("ar")
         // ],
         title: 'Flutter Demo',
-        theme: ThemeData(primarySwatch: Colors.teal
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
             // This is the theme of your application.
             //
             // Try running your application with "flutter run". You'll see the
@@ -47,7 +49,7 @@ class MyApp extends StatelessWidget {
             height: double.infinity,
             width: double.infinity,
             decoration: BoxDecoration(
-                color: Color(0xFF199A8E)
+                color:NewColor.mint
                 ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -73,7 +75,7 @@ class MyApp extends StatelessWidget {
               ],
             ),
           ),
-          nextScreen: HomePage(),
+          nextScreen: LoginPatient(),
         ));
   }
 }

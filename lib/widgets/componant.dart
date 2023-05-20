@@ -1,11 +1,10 @@
 import 'package:flutter/cupertino.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:graduation_project/helper/New_Color.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-Widget build_containar({required double h}) {
+Widget build_containar({required double h,String? text}) {
   return Padding(
-    padding: EdgeInsets.fromLTRB(25, 0, 25, 12),
+    padding: const EdgeInsets.fromLTRB(25, 0, 25, 12),
     child: Container(
       height: h,
       decoration: BoxDecoration(
@@ -14,14 +13,14 @@ Widget build_containar({required double h}) {
       ),
       child: Center(
           child: Text(
-        "Sign Up",
-        style: TextStyle(
+        text ?? "Sign Up",
+        style:const TextStyle(
             fontWeight: FontWeight.bold, color: Colors.white, fontSize: 22),
       )),
     ),
   );
 }
-Widget build_containar_curcal() {
+Widget  build_containar_curcal() {
   return Container(
     width: 50,
     height: 100,
@@ -38,7 +37,7 @@ Widget Textfield1(
   @required String valiedText,
 ) {
   return Padding(
-    padding: EdgeInsets.fromLTRB(25, 0, 25, 12),
+    padding:const EdgeInsets.fromLTRB(25, 0, 25, 12),
     child:
     TextFormField(
       controller: controller,
@@ -143,7 +142,7 @@ Widget PopularDoctor(
                     style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
-                        fontSize: 18),
+                        fontSize: 16),
                   ),
                   Expanded(child: Container()),
                   Icon(
@@ -381,38 +380,29 @@ Widget TextFaildDonate({
 }) {
   return Padding(
       padding: const EdgeInsets.all(12.0),
-      child: Card(
-        elevation: 4.0,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.0),
-        ),
-        color: Colors.white,
-        child: TextFormField(
-          keyboardType: TextInputType,
-          onFieldSubmitted: (value) {
-            print(value);
-          },
-          onChanged: (value) {
-            print(value);
-          },
-          validator: (value) {
-            if (value!.isEmpty) {
-              return '$valiedText';
-            }
-            return null;
-          },
-          decoration: InputDecoration(
-            focusColor: Colors.black12,
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: NewColor.mint),
-            ),
-            labelText: "$labelText",
-            border: OutlineInputBorder(
-              borderSide: BorderSide(),
-            ),
-            prefixIcon:icon,
-
+      child: TextFormField(
+        keyboardType: TextInputType,
+        onFieldSubmitted: (value) {
+        },
+        onChanged: (value) {
+        },
+        validator: (value) {
+          if (value!.isEmpty) {
+            return '$valiedText';
+          }
+          return null;
+        },
+        decoration: InputDecoration(
+          focusColor: Colors.black12,
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: NewColor.mint),
           ),
+          labelText: "$labelText",
+          border: OutlineInputBorder(
+            borderSide: BorderSide(),
+          ),
+          prefixIcon:icon,
+
         ),
       ));
 }

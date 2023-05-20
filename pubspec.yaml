@@ -48,6 +48,7 @@ dependencies:
   animations: ^2.0.4
   custom_pop_up_menu: ^1.2.4
   lottie: ^2.2.0
+  flutter_bloc: ^8.1.2
 
 dev_dependencies:
   flutter_test:

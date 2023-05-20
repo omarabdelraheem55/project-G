@@ -15,7 +15,7 @@ class _DonateRequestState extends State<DonateRequest> {
   final email=TextEditingController();
   final reasos=TextEditingController();
   final Quantity=TextEditingController();
-  var formkey = GlobalKey<FormState>();
+  var _formkey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
@@ -49,7 +49,7 @@ class _DonateRequestState extends State<DonateRequest> {
       ),
       body: SingleChildScrollView(
         child: Form(
-          key:formkey ,
+          key:_formkey ,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -78,7 +78,19 @@ class _DonateRequestState extends State<DonateRequest> {
                 ),
               ),
               SizedBox(height: 20,),
-              build_containar(h: height*0.08)
+              GestureDetector(
+                onTap: (){
+                  if(_formkey.currentState!.validate()){
+                    print("done");
+                  }else{
+                    return null;
+                  }
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: build_containar(h: height*0.07,text: "Supmit"),
+                ),
+              )
             ],
           ),
         ),

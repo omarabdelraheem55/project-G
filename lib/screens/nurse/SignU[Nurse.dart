@@ -65,8 +65,8 @@ class _SignUpNurseState extends State<SignUpNurse> {
                 Textfield1(name, TextInputType.name, Icon(Icons.account_circle_outlined,color: NewColor.mint,), "Enter your name", "*please enter your name")
                 // البريد
                 ,Textfield1(email, TextInputType.emailAddress, Icon(Icons.email,color: NewColor.mint), "Enter your email", "please enter your email"),
-                Textfield1(price, TextInputType.number,Icon(Icons.monetization_on), "labelText", "valiedText"),
-                Textfield1(city, TextInputType.streetAddress,Icon(Icons.location_city_rounded), "labelText", "valiedText"),
+                Textfield1(price, TextInputType.number,Icon(Icons.monetization_on,color: NewColor.mint), "Price", "Enter your price!"),
+                Textfield1(city, TextInputType.streetAddress,Icon(Icons.location_city_rounded,color: NewColor.mint), "Address", "Enter your Address"),
                 //كلمه المرور
                Padding(
                   padding:  EdgeInsets.fromLTRB(25, 0, 25, 12),
@@ -118,7 +118,7 @@ class _SignUpNurseState extends State<SignUpNurse> {
                 ),
                 ListTile(
                   leading: Checkbox(value:agreement ,
-                    activeColor: Color(0xff2d9b95),
+                    activeColor:NewColor.mint,
                     onChanged: (value)
                     {
                       setState(() {
@@ -138,7 +138,7 @@ class _SignUpNurseState extends State<SignUpNurse> {
                           TextSpan(text: " Terms of Service ",
                               style: TextStyle(
                                   fontSize:MediaQuery.of(context).size.width*0.04 ,
-                                  color: Color(0xff2d9b95)
+                                  color: NewColor.mint
                               )
                           ),
                           TextSpan(text: " and ",
@@ -150,7 +150,7 @@ class _SignUpNurseState extends State<SignUpNurse> {
                           TextSpan(text: "Privacy Policy  ",
                               style: TextStyle(
                                   fontSize:MediaQuery.of(context).size.width*0.04 ,
-                                  color: Color(0xff2d9b95)
+                                  color: NewColor.mint
                               )
                           ),
 

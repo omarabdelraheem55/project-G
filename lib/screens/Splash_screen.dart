@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:graduation_project/helper/New_Color.dart';
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
@@ -12,7 +13,7 @@ class SplashScreen extends StatelessWidget {
         height: height,
         width: width,
         decoration: BoxDecoration(
-          color:Color(0xFF199A8E)          // gradient: LinearGradient(
+          color:NewColor.mint   // gradient: LinearGradient(
         ),
         child: Column(
           children: [

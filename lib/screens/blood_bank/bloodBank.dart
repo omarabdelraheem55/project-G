@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:graduation_project/helper/New_Color.dart';
 import 'package:graduation_project/screens/blood_bank/donate.dart';
+import 'package:graduation_project/screens/blood_bank/select_request.dart';
 import 'package:lottie/lottie.dart';
 
 import 'donateRequest.dart';
@@ -153,7 +154,7 @@ class _BloodBankState extends State<BloodBank> {
                     ),
                     GestureDetector(
                       onTap: (){
-                        Route route=MaterialPageRoute(builder: (context)=>DonateRequest());
+                        Route route=MaterialPageRoute(builder: (context)=>SelectedRequest());
                         Navigator.push(context, route);
                       },
                       child: Column(

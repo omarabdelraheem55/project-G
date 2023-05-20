@@ -72,7 +72,7 @@ class _DonateState extends State<Donate> {
                     children:[
                       Container(
                         margin: EdgeInsets.symmetric(
-                          horizontal: 20,
+                          horizontal: width*0.005,
                           vertical: 1,
                         ),
                         height: height*0.1,
@@ -84,7 +84,8 @@ class _DonateState extends State<Donate> {
 
                             )
                         ),
-                        child: Row(
+                        child:
+                        Row(
                             children: [
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
@@ -144,7 +145,8 @@ class _DonateState extends State<Donate> {
                                   ],
                                 ),
                               )
-                            ]), )
+                            ]),
+                      ),
                     ]),
               ),
             ],
