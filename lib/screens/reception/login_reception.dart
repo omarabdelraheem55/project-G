@@ -3,7 +3,6 @@ import 'package:graduation_project/helper/New_Color.dart';
 import 'package:graduation_project/screens/Button_nav_bar.dart';
 import 'package:graduation_project/screens/Who_are_we_signup.dart';
 import '../../widgets/componant.dart';
-import '../doctor/SignUpDoctor.dart';
 class LoginReception extends StatefulWidget {
   @override
   State<LoginReception> createState() => __LoginReceptionState();
@@ -38,7 +37,7 @@ class __LoginReceptionState extends State<LoginReception> {
                 color: Colors.white),
           ),
         ),
-        backgroundColor: NewColor.mint,
+        backgroundColor: NewColor.primaryColour,
       ),
       body: SingleChildScrollView(
         child: Form(
@@ -59,7 +58,7 @@ class __LoginReceptionState extends State<LoginReception> {
               Textfield1(
                   emailcontroler,
                   TextInputType.emailAddress,
-                  Icon(Icons.email, color: NewColor.mint),
+                  Icon(Icons.email, color: NewColor.primaryColour),
                   "Enter your email",
                   "please enter your email"),
               //كلمه المرور
@@ -83,7 +82,7 @@ class __LoginReceptionState extends State<LoginReception> {
                   },
                   decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: NewColor.mint),
+                        borderSide: BorderSide(color: NewColor.primaryColour),
                         borderRadius: BorderRadius.circular(25)),
                     labelText: "Enter your password",
                     border: OutlineInputBorder(
@@ -92,7 +91,7 @@ class __LoginReceptionState extends State<LoginReception> {
                     ),
                     prefixIcon: Icon(
                       Icons.lock,
-                      color: NewColor.mint,
+                      color: NewColor.primaryColour,
                     ),
                     suffixIcon: IconButton(
                       onPressed: () {
@@ -103,11 +102,11 @@ class __LoginReceptionState extends State<LoginReception> {
                       icon: ispassword
                           ? Icon(
                         Icons.visibility,
-                        color: NewColor.mint,
+                        color: NewColor.primaryColour,
                       )
                           : Icon(
                         Icons.visibility_off,
-                        color: NewColor.mint,
+                        color: NewColor.primaryColour,
                       ),
                     ),
                   ),
@@ -119,7 +118,7 @@ class __LoginReceptionState extends State<LoginReception> {
               ListTile(
                 leading: Checkbox(
                   value: agreement,
-                  activeColor: NewColor.mint,
+                  activeColor: NewColor.primaryColour,
                   onChanged: (value) {
                     setState(() {
                       agreement = value!;
@@ -139,7 +138,7 @@ class __LoginReceptionState extends State<LoginReception> {
                             style: TextStyle(
                                 fontSize:
                                 MediaQuery.of(context).size.width * 0.04,
-                                color: NewColor.mint)),
+                                color: NewColor.primaryColour)),
                         TextSpan(
                             text: " and ",
                             style: TextStyle(
@@ -151,7 +150,7 @@ class __LoginReceptionState extends State<LoginReception> {
                             style: TextStyle(
                                 fontSize:
                                 MediaQuery.of(context).size.width * 0.04,
-                                color: NewColor.mint)),
+                                color: NewColor.primaryColour)),
                       ]),
                 ),
               ),
@@ -162,7 +161,7 @@ class __LoginReceptionState extends State<LoginReception> {
                 padding: const EdgeInsets.all(20.0),
                 child: Container(
                   decoration: BoxDecoration(
-                      color: agreement ? NewColor.mint : Colors.grey[500],
+                      color: agreement ? NewColor.primaryColour : Colors.grey[500],
                       borderRadius: BorderRadius.circular(32)),
                   width: width * 0.9,
                   height: height * 0.073,
@@ -214,7 +213,7 @@ class __LoginReceptionState extends State<LoginReception> {
                           child: Text(
                             "Sign Up",
                             style: TextStyle(
-                                color: NewColor.mint,
+                                color: NewColor.primaryColour,
                                 fontSize: width * 0.035,
                                 fontWeight: FontWeight.bold),
                           ),

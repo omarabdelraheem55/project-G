@@ -39,7 +39,7 @@ class _ScreensState extends State<Screens> {
                         ),
                       ),
                       SizedBox(height: height*0.1,),
-                      Image.asset("lib/assets/images/img_8.png",scale: 1.5,),
+                      Image.asset("lib/assets/images/welcomepage3.png",scale: 1.5,),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text("Welcome",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 30),),
@@ -62,7 +62,7 @@ class _ScreensState extends State<Screens> {
                    ),
                  ),
                  SizedBox(height: height*0.1,),
-                 Image.asset("lib/assets/images/img_9.png",scale: 1.5,),
+                 Image.asset("lib/assets/images/welcomepage4.png",scale: 1.5,),
                  Text("Advantages",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 30),),
                  Padding(
                    padding: const EdgeInsets.all(18),
@@ -81,7 +81,7 @@ class _ScreensState extends State<Screens> {
                     ),
                   ),
                   SizedBox(height: height*0.1,),
-                  Image.asset("lib/assets/images/img_10.png",scale: 1.5,),
+                  Image.asset("lib/assets/images/welcomepage5.png",scale: 1.5,),
                   Text("nursing staff",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 30),),
                   Padding(
                     padding: const EdgeInsets.all(18),
@@ -90,13 +90,13 @@ class _ScreensState extends State<Screens> {
                   TextButton(onPressed: (){
                     Route route=MaterialPageRoute(builder: (context)=>SelectForm());
                     Navigator.pushReplacement(context, route);
-                  }, child:  Text("Let's Go..!",style: TextStyle(color:NewColor.mint,fontWeight: FontWeight.bold,fontSize: 18),),)
+                  }, child:  Text("Let's Go..!",style: TextStyle(color:NewColor.primaryColour,fontWeight: FontWeight.bold,fontSize: 18),),)
                 ],
               ),)
               ],
             ),
           ),
-           SmoothPageIndicator(controller: controller, count: 3,effect:SwapEffect(type: SwapType.yRotation,dotHeight: 18,dotWidth: 30,activeDotColor: NewColor.mint),)
+           SmoothPageIndicator(controller: controller, count: 3,effect:SwapEffect(type: SwapType.yRotation,dotHeight: 18,dotWidth: 30,activeDotColor: NewColor.primaryColour),)
         ],
       ),
     );

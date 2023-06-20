@@ -1,18 +1,26 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:graduation_project/helper/New_Color.dart';
 import 'package:graduation_project/screens/Button_nav_bar.dart';
 import 'package:graduation_project/screens/Who_are_we_login.dart';
+import 'package:graduation_project/screens/nurse/SignU%5BNurse.dart';
+import 'package:http/http.dart';
 import '../../widgets/componant.dart';
+import 'loginrespons.dart';
+
 class LoginPatient extends StatefulWidget {
   @override
   State<LoginPatient> createState() => __LoginPatientState();
 }
+
 class __LoginPatientState extends State<LoginPatient> {
   final emailcontroler = TextEditingController();
   final passcontroler = TextEditingController();
   final namecontroler = TextEditingController();
   bool ispassword = false;
   bool agreement = false;
+  bool isLoading = false;
   IconData? suffix;
   var formkey = GlobalKey<FormState>();
   @override
@@ -37,7 +45,7 @@ class __LoginPatientState extends State<LoginPatient> {
                 color: Colors.white),
           ),
         ),
-        backgroundColor: NewColor.mint,
+        backgroundColor: NewColor.primaryColour,
       ),
       body: SingleChildScrollView(
         child: Form(
@@ -58,7 +66,7 @@ class __LoginPatientState extends State<LoginPatient> {
               Textfield1(
                   emailcontroler,
                   TextInputType.emailAddress,
-                  Icon(Icons.email, color: NewColor.mint),
+                  Icon(Icons.email, color: NewColor.primaryColour),
                   "Enter your email",
                   "please enter your email"),
               //كلمه المرور
@@ -68,21 +76,15 @@ class __LoginPatientState extends State<LoginPatient> {
                   controller: passcontroler,
                   keyboardType: TextInputType.visiblePassword,
                   obscureText: ispassword,
-                  onFieldSubmitted: (value) {
-                    print(value);
-                  },
-                  onChanged: (value) {
-                    print(value);
-                  },
                   validator: (value) {
-                    if (value!.length < 8) {
-                      return 'Please enter the password in at least 8 fields';
+                    if (value == null || value.isEmpty) {
+                      return "Enter Valid Password";
                     }
                     return null;
                   },
                   decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: NewColor.mint),
+                        borderSide: BorderSide(color: NewColor.primaryColour),
                         borderRadius: BorderRadius.circular(25)),
                     labelText: "Enter your password",
                     border: OutlineInputBorder(
@@ -91,7 +93,7 @@ class __LoginPatientState extends State<LoginPatient> {
                     ),
                     prefixIcon: Icon(
                       Icons.lock,
-                      color: NewColor.mint,
+                      color: NewColor.primaryColour,
                     ),
                     suffixIcon: IconButton(
                       onPressed: () {
@@ -101,13 +103,13 @@ class __LoginPatientState extends State<LoginPatient> {
                       },
                       icon: ispassword
                           ? Icon(
-                        Icons.visibility,
-                        color: NewColor.mint,
-                      )
+                              Icons.visibility,
+                              color: NewColor.primaryColour,
+                            )
                           : Icon(
-                        Icons.visibility_off,
-                        color: NewColor.mint,
-                      ),
+                              Icons.visibility_off,
+                              color: NewColor.primaryColour,
+                            ),
                     ),
                   ),
                 ),
@@ -118,7 +120,7 @@ class __LoginPatientState extends State<LoginPatient> {
               ListTile(
                 leading: Checkbox(
                   value: agreement,
-                  activeColor: NewColor.mint,
+                  activeColor: NewColor.primaryColour,
                   onChanged: (value) {
                     setState(() {
                       agreement = value!;
@@ -137,20 +139,20 @@ class __LoginPatientState extends State<LoginPatient> {
                             text: " Terms of Service ",
                             style: TextStyle(
                                 fontSize:
-                                MediaQuery.of(context).size.width * 0.04,
-                                color: NewColor.mint)),
+                                    MediaQuery.of(context).size.width * 0.04,
+                                color: NewColor.primaryColour)),
                         TextSpan(
                             text: " and ",
                             style: TextStyle(
                                 fontSize:
-                                MediaQuery.of(context).size.width * 0.04,
+                                    MediaQuery.of(context).size.width * 0.04,
                                 color: Colors.black)),
                         TextSpan(
                             text: "Privacy Policy  ",
                             style: TextStyle(
                                 fontSize:
-                                MediaQuery.of(context).size.width * 0.04,
-                                color: NewColor.mint)),
+                                    MediaQuery.of(context).size.width * 0.04,
+                                color: NewColor.primaryColour)),
                       ]),
                 ),
               ),
@@ -159,24 +161,23 @@ class __LoginPatientState extends State<LoginPatient> {
               ),
               Padding(
                 padding: const EdgeInsets.all(20.0),
-                child: Container(
+                child:
+                isLoading ? Center(child: CircularProgressIndicator(),): Container(
                   decoration: BoxDecoration(
-                      color: agreement ? NewColor.mint : Colors.grey[500],
+                      color: agreement ? NewColor.primaryColour : Colors.grey[500],
                       borderRadius: BorderRadius.circular(32)),
                   width: width * 0.9,
                   height: height * 0.073,
-                  child: MaterialButton(
-                    onPressed: agreement
-                        ? () {
+                  child:
+                  MaterialButton(
+                    onPressed: () {
                       if (formkey.currentState!.validate()) {
-                        Route route = MaterialPageRoute(
-                            builder: (context) =>BottomNavigation());
-                        Navigator.pushReplacement(context, route);
+                        formkey.currentState!.save();
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>BottomNavigation()));
                       }
-
-                      // Navigator.push(context, MaterialPageRoute(builder:(context)=> MessengerScreen()));
                     }
-                        : null,
+
+                    ,
                     child: Text(
                       "Login",
                       style: TextStyle(
@@ -213,7 +214,7 @@ class __LoginPatientState extends State<LoginPatient> {
                           child: Text(
                             "Sign Up",
                             style: TextStyle(
-                                color: NewColor.mint,
+                                color: NewColor.primaryColour,
                                 fontSize: width * 0.035,
                                 fontWeight: FontWeight.bold),
                           ),
@@ -227,4 +228,28 @@ class __LoginPatientState extends State<LoginPatient> {
       ),
     );
   }
+
+  Future login() async {
+    setState(() {
+      isLoading = true;
+    });
+    Response response =
+        await post(Uri.parse("http://alcaptin.com/api/login"), body: {
+      //  هنا باصيت قيمه التيكست الي جوا الكنترولر للبودي الي بيتبعت
+      "email": emailcontroler.text,
+      "password": passcontroler.text,
+    });
+    dynamic jsonResponse = jsonDecode(response.body);
+    if (response.statusCode == 200) {
+      LoginResponse loginResponse = LoginResponse.fromJson(jsonResponse);
+      print(",,,z");
+     Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUpNurse()));
+    } else {
+      print("please enter curret email or password");
+    }
+    setState(() {
+      isLoading = false;
+    });
+  }
+
 }

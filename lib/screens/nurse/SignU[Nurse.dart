@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:graduation_project/screens/Who_are_we_login.dart';
 import 'package:graduation_project/widgets/componant.dart';
 import 'package:graduation_project/screens/Button_nav_bar.dart';
-import 'package:graduation_project/screens/doctor/login_doctor.dart';
-import 'package:lottie/lottie.dart';
 import '../../helper/New_Color.dart';
 
 class SignUpNurse extends StatefulWidget {
@@ -47,7 +45,7 @@ class _SignUpNurseState extends State<SignUpNurse> {
                   fontSize: width * 0.058,
                   color: Colors.white),),
           ),
-          backgroundColor: NewColor.mint,
+          backgroundColor: NewColor.primaryColour,
         ),
         body: SingleChildScrollView(
           child: Form(
@@ -62,11 +60,11 @@ class _SignUpNurseState extends State<SignUpNurse> {
                   height: width * 0.1,
                 ),
                 //الاسم
-                Textfield1(name, TextInputType.name, Icon(Icons.account_circle_outlined,color: NewColor.mint,), "Enter your name", "*please enter your name")
+                Textfield1(name, TextInputType.name, Icon(Icons.account_circle_outlined,color: NewColor.primaryColour,), "Enter your name", "*please enter your name")
                 // البريد
-                ,Textfield1(email, TextInputType.emailAddress, Icon(Icons.email,color: NewColor.mint), "Enter your email", "please enter your email"),
-                Textfield1(price, TextInputType.number,Icon(Icons.monetization_on,color: NewColor.mint), "Price", "Enter your price!"),
-                Textfield1(city, TextInputType.streetAddress,Icon(Icons.location_city_rounded,color: NewColor.mint), "Address", "Enter your Address"),
+                ,Textfield1(email, TextInputType.emailAddress, Icon(Icons.email,color: NewColor.primaryColour), "Enter your email", "please enter your email"),
+                Textfield1(price, TextInputType.number,Icon(Icons.monetization_on,color: NewColor.primaryColour), "Price", "Enter your price!"),
+                Textfield1(city, TextInputType.streetAddress,Icon(Icons.location_city_rounded,color: NewColor.primaryColour), "Address", "Enter your Address"),
                 //كلمه المرور
                Padding(
                   padding:  EdgeInsets.fromLTRB(25, 0, 25, 12),
@@ -89,12 +87,12 @@ class _SignUpNurseState extends State<SignUpNurse> {
                       return null;
                     },
                     decoration: InputDecoration(
-                      focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: NewColor.mint),borderRadius: BorderRadius.circular(25)),
+                      focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: NewColor.primaryColour),borderRadius: BorderRadius.circular(25)),
                       labelText: "Enter your password",
                       border: OutlineInputBorder(borderRadius:BorderRadius.circular(25.0),
                         borderSide: BorderSide(),),
                       prefixIcon: Icon(
-                        Icons.lock,color: NewColor.mint,
+                        Icons.lock,color: NewColor.primaryColour,
                       ),
                       suffixIcon: IconButton(
                         onPressed: ()
@@ -105,9 +103,9 @@ class _SignUpNurseState extends State<SignUpNurse> {
                           });
                         },
                         icon: isPassword ? Icon(
-                          Icons.visibility,color: NewColor.mint,
+                          Icons.visibility,color: NewColor.primaryColour,
                         ):Icon(
-                          Icons.visibility_off,color: NewColor.mint,
+                          Icons.visibility_off,color: NewColor.primaryColour,
                         ) ,
                       ),
                     ),
@@ -118,7 +116,7 @@ class _SignUpNurseState extends State<SignUpNurse> {
                 ),
                 ListTile(
                   leading: Checkbox(value:agreement ,
-                    activeColor:NewColor.mint,
+                    activeColor:NewColor.primaryColour,
                     onChanged: (value)
                     {
                       setState(() {
@@ -138,7 +136,7 @@ class _SignUpNurseState extends State<SignUpNurse> {
                           TextSpan(text: " Terms of Service ",
                               style: TextStyle(
                                   fontSize:MediaQuery.of(context).size.width*0.04 ,
-                                  color: NewColor.mint
+                                  color: NewColor.primaryColour
                               )
                           ),
                           TextSpan(text: " and ",
@@ -150,7 +148,7 @@ class _SignUpNurseState extends State<SignUpNurse> {
                           TextSpan(text: "Privacy Policy  ",
                               style: TextStyle(
                                   fontSize:MediaQuery.of(context).size.width*0.04 ,
-                                  color: NewColor.mint
+                                  color: NewColor.primaryColour
                               )
                           ),
 
@@ -173,7 +171,7 @@ class _SignUpNurseState extends State<SignUpNurse> {
                   Padding(
                       padding:  EdgeInsets.fromLTRB(25, 0, 25, 12),
                       child:Container(
-                        decoration: BoxDecoration(  color: agreement? NewColor.mint:Colors.grey[500],borderRadius: BorderRadius.circular(32)),
+                        decoration: BoxDecoration(  color: agreement? NewColor.primaryColour:Colors.grey[500],borderRadius: BorderRadius.circular(32)),
                         width: width * 0.9,
                         height: height * 0.073,
                         child: MaterialButton( onPressed: agreement ?(
@@ -212,7 +210,7 @@ class _SignUpNurseState extends State<SignUpNurse> {
                           text: 'Login',
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              color: NewColor.mint),
+                              color: NewColor.primaryColour),
                         ),
                       ],
                     ),

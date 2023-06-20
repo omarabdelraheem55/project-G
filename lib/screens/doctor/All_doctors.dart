@@ -16,11 +16,11 @@ class _Doctors_ScreenState extends State<Doctors_Screen> {
         appBar: AppBar(
           backgroundColor:Color(0xffF4F8FB),
           leading: IconButton(icon:Icon(Icons.arrow_back_ios_rounded),
-            color: NewColor.mint
+            color: NewColor.primaryColour
             , onPressed: () { Navigator.pop(context); },),
           title: Text("All Doctors",
             style: TextStyle(
-              color:NewColor.mint,
+              color:NewColor.primaryColour,
               fontSize: MediaQuery.of(context).size.width*0.05,
               fontWeight: FontWeight.bold,
             ),
@@ -514,7 +514,7 @@ class _Doctors_ScreenState extends State<Doctors_Screen> {
                                 padding: const EdgeInsets.all(4.0),
                                 child: CircleAvatar(
                                   radius: 35.0,
-                                  backgroundImage:AssetImage("lib/assets/images/acc_doc4.jpg"),
+                                  backgroundImage:AssetImage("lib/assets/images/imageDoctor4.jpg"),
                                 ),
                               ),
                               Expanded(child: Column(

@@ -4,12 +4,8 @@ import 'package:graduation_project/helper/New_Color.dart';
 import 'package:graduation_project/screens/blood_bank/donate.dart';
 import 'package:graduation_project/screens/blood_bank/select_request.dart';
 import 'package:lottie/lottie.dart';
-
-import 'donateRequest.dart';
-
 class BloodBank extends StatefulWidget {
   const BloodBank({Key? key}) : super(key: key);
-
   @override
   State<BloodBank> createState() => _BloodBankState();
 }
@@ -24,12 +20,12 @@ class _BloodBankState extends State<BloodBank> {
       appBar: AppBar(
         title: Text(
           "Egypt",
-          style: TextStyle(color: NewColor.mint),
+          style: TextStyle(color: NewColor.primaryColour),
         ),
         leading: IconButton(
           icon: FaIcon(
             FontAwesomeIcons.locationDot,
-            color: NewColor.mint,
+            color: NewColor.primaryColour,
           ),
           onPressed: () {},
         ),
@@ -40,7 +36,7 @@ class _BloodBankState extends State<BloodBank> {
               onPressed: () {},
               icon: Icon(
                 FontAwesomeIcons.bars,
-                color: NewColor.mint,
+                color: NewColor.primaryColour,
               ))
         ],
       ),
@@ -59,7 +55,7 @@ class _BloodBankState extends State<BloodBank> {
                 ),
                 Text(
                   "donate blood ",
-                  style: TextStyle(color: NewColor.mint, fontSize: 36),
+                  style: TextStyle(color: NewColor.primaryColour, fontSize: 36),
                 ),
                 // Row(
                 //   children: [

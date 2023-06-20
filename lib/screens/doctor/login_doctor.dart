@@ -38,7 +38,7 @@ class __LoginDoctorState extends State<LoginDoctor> {
                 color: Colors.white),
           ),
         ),
-        backgroundColor: NewColor.mint,
+        backgroundColor: NewColor.primaryColour,
       ),
       body: SingleChildScrollView(
         child: Form(
@@ -59,7 +59,7 @@ class __LoginDoctorState extends State<LoginDoctor> {
               Textfield1(
                   emailcontroler,
                   TextInputType.emailAddress,
-                  Icon(Icons.email, color: NewColor.mint),
+                  Icon(Icons.email, color: NewColor.primaryColour),
                   "Enter your email",
                   "please enter your email"),
               //كلمه المرور
@@ -83,7 +83,7 @@ class __LoginDoctorState extends State<LoginDoctor> {
                   },
                   decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: NewColor.mint),
+                        borderSide: BorderSide(color: NewColor.primaryColour),
                         borderRadius: BorderRadius.circular(25)),
                     labelText: "Enter your password",
                     border: OutlineInputBorder(
@@ -92,7 +92,7 @@ class __LoginDoctorState extends State<LoginDoctor> {
                     ),
                     prefixIcon: Icon(
                       Icons.lock,
-                      color: NewColor.mint,
+                      color: NewColor.primaryColour,
                     ),
                     suffixIcon: IconButton(
                       onPressed: () {
@@ -103,11 +103,11 @@ class __LoginDoctorState extends State<LoginDoctor> {
                       icon: ispassword
                           ? Icon(
                               Icons.visibility,
-                              color: NewColor.mint,
+                              color: NewColor.primaryColour,
                             )
                           : Icon(
                               Icons.visibility_off,
-                              color: NewColor.mint,
+                              color: NewColor.primaryColour,
                             ),
                     ),
                   ),
@@ -119,7 +119,7 @@ class __LoginDoctorState extends State<LoginDoctor> {
               ListTile(
                 leading: Checkbox(
                   value: agreement,
-                  activeColor: NewColor.mint,
+                  activeColor: NewColor.primaryColour,
                   onChanged: (value) {
                     setState(() {
                       agreement = value!;
@@ -139,7 +139,7 @@ class __LoginDoctorState extends State<LoginDoctor> {
                             style: TextStyle(
                                 fontSize:
                                     MediaQuery.of(context).size.width * 0.04,
-                                color: NewColor.mint)),
+                                color: NewColor.primaryColour)),
                         TextSpan(
                             text: " and ",
                             style: TextStyle(
@@ -151,7 +151,7 @@ class __LoginDoctorState extends State<LoginDoctor> {
                             style: TextStyle(
                                 fontSize:
                                     MediaQuery.of(context).size.width * 0.04,
-                                color: NewColor.mint)),
+                                color: NewColor.primaryColour)),
                       ]),
                 ),
               ),
@@ -162,7 +162,7 @@ class __LoginDoctorState extends State<LoginDoctor> {
                 padding: const EdgeInsets.all(20.0),
                 child: Container(
                   decoration: BoxDecoration(
-                      color: agreement ? NewColor.mint : Colors.grey[500],
+                      color: agreement ? NewColor.primaryColour : Colors.grey[500],
                       borderRadius: BorderRadius.circular(32)),
                   width: width * 0.9,
                   height: height * 0.073,
@@ -214,7 +214,7 @@ class __LoginDoctorState extends State<LoginDoctor> {
                           child: Text(
                             "Sign Up",
                             style: TextStyle(
-                                color: NewColor.mint,
+                                color: NewColor.primaryColour,
                                 fontSize: width * 0.035,
                                 fontWeight: FontWeight.bold),
                           ),

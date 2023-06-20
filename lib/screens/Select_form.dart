@@ -34,11 +34,11 @@ class _SelectFormState extends State<SelectForm> {
                   style: TextStyle(
                       color: Colors.black, fontWeight: FontWeight.bold),
                   children: [
-                    TextSpan(text: "a", style: TextStyle(color: NewColor.mint)),
+                    TextSpan(text: "a", style: TextStyle(color: NewColor.primaryColour)),
                     TextSpan(
                         text: "re__رعــــ",
                         style: TextStyle(color: Colors.black)),
-                    TextSpan(text: "ا", style: TextStyle(color: NewColor.mint)),
+                    TextSpan(text: "ا", style: TextStyle(color: NewColor.primaryColour)),
                     TextSpan(
                         text: "يــة", style: TextStyle(color: Colors.black)),
                   ]),
@@ -80,7 +80,7 @@ class _SelectFormState extends State<SelectForm> {
                 height: 70,
                 width: width * 0.8,
                 decoration: BoxDecoration(
-                  color: NewColor.mint,
+                  color: NewColor.primaryColour,
                   borderRadius: BorderRadius.circular(32),
                 ),
                 child: Center(
@@ -102,7 +102,7 @@ class _SelectFormState extends State<SelectForm> {
                 width: width * 0.8,
                 decoration: BoxDecoration(
                   color: NewColor.border,
-                  border: Border.all(color: NewColor.mint),
+                  border: Border.all(color: NewColor.primaryColour),
                   borderRadius: BorderRadius.circular(32),
                 ),
                 child: Center(
@@ -110,7 +110,7 @@ class _SelectFormState extends State<SelectForm> {
                   "Sign Up",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: NewColor.mint,
+                      color: NewColor.primaryColour,
                       fontSize: 22),
                 )),
               ),

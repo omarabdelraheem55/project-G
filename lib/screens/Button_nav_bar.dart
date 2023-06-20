@@ -14,9 +14,8 @@ class _BottomNavigationState extends State<BottomNavigation> {
   final screens= [
    HomePage(),
    HomePage(),
-   // HomePage(),
-   // HomePage(),
    HomePage(),
+
   ];
   @override
   Widget build(BuildContext context) {
@@ -29,7 +28,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
         bottomNavigationBar:
         BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
-          selectedItemColor:NewColor.mint,
+          selectedItemColor:NewColor.primaryColour,
           unselectedItemColor: Colors.grey,
           showUnselectedLabels: false,
           currentIndex: currentIndex,
@@ -38,8 +37,6 @@ class _BottomNavigationState extends State<BottomNavigation> {
           items: [
             BottomNavigationBarItem(icon: Icon(Icons.home),label: "Home"),
             BottomNavigationBarItem(icon: Icon(Icons.favorite),label: "Notification" ),
-            // BottomNavigationBarItem(icon: CircleAvatar(backgroundImage:AssetImage("lib/assets/images/img_7.png"),),label: "Location" ),
-            // BottomNavigationBarItem(icon: Icon(Icons.chat),label: "Calendar" ),
             BottomNavigationBarItem(icon: Icon(Icons.person),label: "Profile" ),
           ],),
       );

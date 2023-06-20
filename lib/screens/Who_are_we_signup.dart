@@ -34,12 +34,12 @@ class _WohAreWeState extends State<WhoAreWe> {
                   children: [
                         Padding(
                           padding: const EdgeInsets.only(left: 30,right: 5),
-                          child: Image.asset("lib/assets/images/img_6.png",scale: 1.5,),
+                          child: Image.asset("lib/assets/images/welcomepage.png",scale: 1.5,),
                         ),
                     TextButton(onPressed: (){
                       Route route=MaterialPageRoute(builder: (context)=>SignUpDoctor());
                       Navigator.push(context, route);
-                    }, child: Text("Doctor",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: NewColor.mint),))
+                    }, child: Text("Doctor",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: NewColor.primaryColour),))
                   ],
                 ),
                 SizedBox(height: height*0.07,),
@@ -47,12 +47,12 @@ class _WohAreWeState extends State<WhoAreWe> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(left: 30,right: 6),
-                      child: Image.asset("lib/assets/images/img_5.png",scale: 1.5,),
+                      child: Image.asset("lib/assets/images/avatars2.png",scale: 1.5,),
                     ),
                     TextButton(onPressed: (){
                       Route route=MaterialPageRoute(builder: (context)=>SignUpPatient());
                       Navigator.push(context, route);
-                    }, child: Text("patient",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: NewColor.mint),))
+                    }, child: Text("patient",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: NewColor.primaryColour),))
                   ],
                 ),
                 SizedBox(height: height*0.07,),
@@ -60,12 +60,12 @@ class _WohAreWeState extends State<WhoAreWe> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(left: 30,right: 5),
-                      child: Image.asset("lib/assets/images/img_7.png",scale: 1.5,),
+                      child: Image.asset("lib/assets/images/welcomepage1.png",scale: 1.5,),
                     ),
                     TextButton(onPressed: (){
                       Route route=MaterialPageRoute(builder: (context)=>SignUpNurse());
                       Navigator.push(context, route);
-                    }, child: Text("Nurses",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: NewColor.mint),))
+                    }, child: Text("Nurses",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: NewColor.primaryColour),))
                   ],
                 ),
 

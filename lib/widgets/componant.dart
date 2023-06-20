@@ -1,31 +1,33 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:graduation_project/helper/New_Color.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-Widget build_containar({required double h,String? text}) {
+
+Widget build_containar({required double h, String? text}) {
   return Padding(
     padding: const EdgeInsets.fromLTRB(25, 0, 25, 12),
     child: Container(
       height: h,
       decoration: BoxDecoration(
-        color: NewColor.mint,
+        color: NewColor.primaryColour,
         borderRadius: BorderRadius.circular(32),
       ),
       child: Center(
           child: Text(
         text ?? "Sign Up",
-        style:const TextStyle(
+        style: const TextStyle(
             fontWeight: FontWeight.bold, color: Colors.white, fontSize: 22),
       )),
     ),
   );
 }
-Widget  build_containar_curcal() {
+
+Widget build_containar_curcal() {
   return Container(
     width: 50,
     height: 100,
     decoration: BoxDecoration(
-        color: NewColor.mint, borderRadius: BorderRadius.circular(100)),
+        color: NewColor.primaryColour, borderRadius: BorderRadius.circular(100)),
   );
 }
 
@@ -37,9 +39,8 @@ Widget Textfield1(
   @required String valiedText,
 ) {
   return Padding(
-    padding:const EdgeInsets.fromLTRB(25, 0, 25, 12),
-    child:
-    TextFormField(
+    padding: const EdgeInsets.fromLTRB(25, 0, 25, 12),
+    child: TextFormField(
       controller: controller,
       keyboardType: TextInputType,
       onFieldSubmitted: (value) {
@@ -49,15 +50,17 @@ Widget Textfield1(
         print(value);
       },
       validator: (value) {
-        if (value!.isEmpty) {
-          return '$valiedText';
+        if (value == null||
+            value.isEmpty||
+            !value.contains("@")) {
+          return "Enter Valid Email";
         }
         return null;
       },
       decoration: InputDecoration(
           focusColor: Colors.black12,
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: NewColor.mint),
+            borderSide: BorderSide(color: NewColor.primaryColour),
             borderRadius: BorderRadius.circular(25.0),
           ),
           labelText: "$labelText",
@@ -192,7 +195,7 @@ Widget PopularNurse(
               ),
               Expanded(
                 child: ClipRRect(
-                  child: Image.asset("lib/assets/images/acc_doc4.jpg"),
+                  child: Image.asset("lib/assets/images/imageDoctor4.jpg"),
                   borderRadius: BorderRadius.circular(25),
                 ),
               ),
@@ -243,21 +246,35 @@ Widget PopularNurse(
 Widget UpComingAppoinment({
   required width,
   required height,
+  required name,
+  required specilaized,
+  required address,
+  required money,
+  required rate,
+  required expertise,
+  required image,
 }) {
   return Container(
     decoration: BoxDecoration(
+      boxShadow: [
+        BoxShadow(
+          color: Colors.grey,
+          blurRadius: 4,
+          offset: Offset(4, 8), // Shadow position
+        ),
+      ],
       color: Colors.white,
       border: Border.all(color: Colors.grey),
-      borderRadius: BorderRadius.circular(12),
+      borderRadius: BorderRadius.circular(16),
     ),
     child: Column(
       children: [
         Row(
           children: [
-            const Padding(
+            Padding(
               padding: EdgeInsets.all(8.0),
               child: CircleAvatar(
-                backgroundImage: AssetImage("lib/assets/images/doctora.jpg"),
+                backgroundImage: AssetImage("$image"),
                 radius: 50,
               ),
             ),
@@ -267,8 +284,8 @@ Widget UpComingAppoinment({
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  "DR:Omar Saleh",
+                Text(
+                  "DR:$name",
                   style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
@@ -293,7 +310,7 @@ Widget UpComingAppoinment({
                     SizedBox(
                       width: height * 0.005,
                     ),
-                    const Text("3 years"),
+                    Text("$expertise"),
                     SizedBox(
                       width: height * 0.05,
                     ),
@@ -302,7 +319,7 @@ Widget UpComingAppoinment({
                       color: Colors.yellow,
                     ),
                     Text(
-                      "4.5",
+                      "$rate",
                       style: TextStyle(fontSize: 18),
                     )
                   ],
@@ -311,47 +328,55 @@ Widget UpComingAppoinment({
             ),
           ],
         ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
-            children: [
-              Image.asset("lib/assets/images/img_1.png", width: width * 0.06),
-              SizedBox(
-                width: width * 0.02,
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  Image.asset("lib/assets/images/stethoscope.png",
+                      width: width * 0.06),
+                  SizedBox(
+                    width: width * 0.02,
+                  ),
+                  Text("Neurology specialized in pediatric")
+                ],
               ),
-              Text("Neurology specialized in pediatric")
-            ],
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
-            children: [
-              Image.asset("lib/assets/images/img_2.png", width: width * 0.06),
-              SizedBox(
-                width: width * 0.02,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  Image.asset("lib/assets/images/location.png",
+                      width: width * 0.06),
+                  SizedBox(
+                    width: width * 0.02,
+                  ),
+                  Text("$address")
+                ],
               ),
-              Text("Mans: Ahmed Maher street")
-            ],
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
-            children: [
-              Image.asset("lib/assets/images/img_3.png", width: width * 0.06),
-              SizedBox(
-                width: width * 0.02,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  Image.asset("lib/assets/images/mony.png",
+                      width: width * 0.06),
+                  SizedBox(
+                    width: width * 0.02,
+                  ),
+                  Text("Frees:$money EGP")
+                ],
               ),
-              Text("Frees:200 EGP")
-            ],
-          ),
+            ),
+          ],
         ),
         Container(
-          width: width * 0.90,
+          width: width * 0.80,
           height: height * 0.05,
           decoration: BoxDecoration(
-            color: Colors.grey,
+            color: NewColor.primaryColour,
             border: Border.all(color: Colors.white10),
             borderRadius: BorderRadius.circular(20),
           ),
@@ -359,7 +384,10 @@ Widget UpComingAppoinment({
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("Available Today from 7:00 pm"),
+              Text(
+                "Available Today from 7:00 pm",
+                style: TextStyle(color: Colors.white),
+              ),
             ],
           ),
         ),
@@ -382,10 +410,8 @@ Widget TextFaildDonate({
       padding: const EdgeInsets.all(12.0),
       child: TextFormField(
         keyboardType: TextInputType,
-        onFieldSubmitted: (value) {
-        },
-        onChanged: (value) {
-        },
+        onFieldSubmitted: (value) {},
+        onChanged: (value) {},
         validator: (value) {
           if (value!.isEmpty) {
             return '$valiedText';
@@ -395,34 +421,99 @@ Widget TextFaildDonate({
         decoration: InputDecoration(
           focusColor: Colors.black12,
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: NewColor.mint),
+            borderSide: BorderSide(color: NewColor.primaryColour),
           ),
           labelText: "$labelText",
           border: OutlineInputBorder(
             borderSide: BorderSide(),
           ),
-          prefixIcon:icon,
-
+          prefixIcon: icon,
         ),
       ));
 }
+
 Widget build_Blood_Type({
   required String image,
   required String type,
-}){
+}) {
   return Container(
       width: 150,
       height: 150,
       decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(16)),
+          color: Colors.white, borderRadius: BorderRadius.circular(16)),
       child: Padding(
         padding: EdgeInsets.all(12),
         child: Column(
           children: [
-            Lottie.network(image,width:100,),
-            Expanded(child: Text(type,  style: TextStyle(color: Colors.black, fontSize: 16),)),
+            Lottie.network(
+              image,
+              width: 100,
+            ),
+            Expanded(
+                child: Text(
+              type,
+              style: TextStyle(color: Colors.black, fontSize: 16),
+            )),
           ],
         ),
       ));
+}
+
+class Item {
+  String? name;
+  String? specilaized;
+  String? address;
+  double? money;
+  double? rate;
+  double? expertise;
+  String? image;
+  Item(this.name, this.specilaized, this.address, this.money, this.rate,
+      this.expertise, this.image);
+
+  static List<Item> InfDoctors = [
+    Item("Sara abd elraheem", "Bones", "Jahan Street", 299, 4.2, 3,
+        "lib/assets/images/imageDoctor4.jpg"),
+    Item("Sara abd elraheem", "Bones", "Jahan Street", 299, 4.2, 3,
+        "lib/assets/images/imageDoctor4.jpg"),
+    Item("Sara abd elraheem", "Bones", "Jahan Street", 299, 4.2, 3,
+        "lib/assets/images/imageDoctor4.jpg"),
+    Item("Sara abd elraheem", "Bones", "Jahan Street", 299, 4.2, 3,
+        "lib/assets/images/imageDoctor4.jpg"),
+  ];
+}
+
+Widget SearchFaild({required var controller, required String name}) {
+  return Container(
+    decoration: BoxDecoration(boxShadow: [
+      BoxShadow(
+        color: Colors.grey.withOpacity(0.5),
+        spreadRadius: 5,
+        blurRadius: 7,
+        offset: Offset(0, 3), // changes position of shadow
+      ),
+    ], color: Colors.white, borderRadius: BorderRadius.circular(25)),
+    width: 150,
+    height: 40,
+    child: Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextFormField(
+        decoration: InputDecoration(
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide.none,
+            borderRadius: BorderRadius.circular(25.0),
+          ),
+          labelText: "$name",
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(25.0),
+            borderSide: BorderSide.none,
+          ),
+        ),
+        controller: controller,
+        keyboardType: TextInputType.text,
+        onChanged: (value) {
+          print(value);
+        },
+      ),
+    ),
+  );
 }

@@ -1,13 +1,8 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:graduation_project/screens/patient/Home_page.dart';
-import 'package:graduation_project/screens/Splash_screen.dart';
-import 'package:graduation_project/search/search.dart';
-import 'package:graduation_project/screens/blood_bank/bloodBank.dart';
+import 'package:graduation_project/chatPot/ChatBotScreen.dart';
+import 'package:graduation_project/screens/welcomePage.dart';
 import 'helper/New_Color.dart';
-import 'screens/patient/login_patient.dart';
-import 'screens/welcomePage.dart';
-
 void main() {
   runApp(const MyApp());
 }
@@ -20,17 +15,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        // localizationsDelegates: [
-        //   GlobalCupertinoLocalizations.delegate,
-        //   GlobalMaterialLocalizations.delegate,
-        //   GlobalWidgetsLocalizations.delegate,
-        // ],
-        // supportedLocales: [
-        //   Locale("ar")
-        // ],
         title: 'Flutter Demo',
         theme: ThemeData(
+
           primarySwatch: Colors.blue,
+            appBarTheme: AppBarTheme(
+              iconTheme: IconThemeData(color: Colors.black),
+              color: NewColor.primaryColour,
+            )
             // This is the theme of your application.
             //
             // Try running your application with "flutter run". You'll see the
@@ -49,33 +41,16 @@ class MyApp extends StatelessWidget {
             height: double.infinity,
             width: double.infinity,
             decoration: BoxDecoration(
-                color:NewColor.mint
+                color:NewColor.primaryColour
                 ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Center(child: Image.asset("lib/assets/images/logo-white.png", height: 200)),
-                RichText(
-                  textScaleFactor: 1.5,
-                  textAlign: TextAlign.start,
-                  text: TextSpan(
-                      text: "C",
-                      style: TextStyle(
-                          color: Colors.black, fontWeight: FontWeight.bold),
-                      children: [
-                        TextSpan(text: "a", style: TextStyle(color:Colors.white)),
-                        TextSpan(
-                            text: "re__رعــــ",
-                            style: TextStyle(color: Colors.black)),
-                        TextSpan(text: "ا", style: TextStyle(color:Colors.white)),
-                        TextSpan(
-                            text: "يــة", style: TextStyle(color: Colors.black)),
-                      ]),
-                ),
+                Center(child: Image.asset("lib/assets/images/logo-white.png", height: 300)),
               ],
             ),
           ),
-          nextScreen: LoginPatient(),
+          nextScreen: Screens(),
         ));
   }
 }

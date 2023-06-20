@@ -18,12 +18,12 @@ class _DonateState extends State<Donate> {
         AppBar(
           title: Text(
             "All donators",
-            style: TextStyle(color: NewColor.mint),
+            style: TextStyle(color: NewColor.primaryColour),
           ),
           leading: IconButton(
             icon: FaIcon(
               FontAwesomeIcons.arrowLeft,
-              color: NewColor.mint,
+              color: NewColor.primaryColour,
             ),
             onPressed: () {
               Navigator.pop(context);
@@ -36,7 +36,7 @@ class _DonateState extends State<Donate> {
                 onPressed: () {},
                 icon: Icon(
                   FontAwesomeIcons.bars,
-                  color: NewColor.mint,
+                  color: NewColor.primaryColour,
                 ))
           ],
         ),
